@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-01-18 05:03:57.466482400 UTC
+// 2025-01-25 18:33:00.632631800 UTC
 
 namespace CS2Dumper.Schemas {
     // Module: server.dll
@@ -1993,7 +1993,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_OnPassThrough = 0x500; // CEntityIOOutput
             public const nint m_OnPassThroughForward = 0x528; // CEntityIOOutput
             public const nint m_OnPassThroughReverse = 0x550; // CEntityIOOutput
-            public const nint m_hMover = 0x578; // CHandle<CPathMover>
+            public const nint m_hMover = 0x578; // 
         }
         // Parent: CEnvSoundscape
         // Field count: 0
@@ -3800,7 +3800,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_flSeqStartTime = 0x230; // GameTime_t
             public const nint m_flSeqFixedCycle = 0x234; // float32
             public const nint m_nAnimLoopMode = 0x238; // AnimLoopMode_t
-            public const nint m_flPlaybackRate = 0x23C; // CNetworkedQuantizedFloat
+            public const nint m_flPlaybackRate = 0x23C; // 
             public const nint m_nNotifyState = 0x248; // SequenceFinishNotifyState_t
             public const nint m_bNetworkedAnimationInputsChanged = 0x24A; // bool
             public const nint m_bNetworkedSequenceChanged = 0x24B; // bool
@@ -6311,7 +6311,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_flNextSecondaryAttackTickRatio = 0xD3C; // float32
             public const nint m_iClip1 = 0xD40; // int32
             public const nint m_iClip2 = 0xD44; // int32
-            public const nint m_pReserveAmmo = 0xD48; // int32[2]
+            public const nint m_pReserveAmmo = 0xD48; // 
             public const nint m_OnPlayerUse = 0xD50; // CEntityIOOutput
         }
         // Parent: CPlayerControllerComponent
@@ -6540,7 +6540,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_bFired = 0x504; // bool
             public const nint m_OnFacingLookat = 0x508; // CEntityIOOutput
             public const nint m_OnNotFacingLookat = 0x530; // CEntityIOOutput
-            public const nint m_TargetDir = 0x558; // CEntityOutputTemplate<Vector>
+            public const nint m_TargetDir = 0x558; // 
             public const nint m_FacingPercentage = 0x580; // CEntityOutputTemplate<float32>
         }
         // Parent: CSoundEventEntity
@@ -7167,7 +7167,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_flMagnitude = 0x988; // float32
             public const nint m_flNoise = 0x98C; // float32
             public const nint m_flViewkick = 0x990; // float32
-            public const nint m_pOutputForce = 0x998; // CEntityOutputTemplate<Vector>
+            public const nint m_pOutputForce = 0x998; // 
         }
         // Parent: CBaseModelEntity
         // Field count: 14
@@ -7304,7 +7304,7 @@ namespace CS2Dumper.Schemas {
         public static class CFuncMover {
             public const nint m_bCreateMovableNavMesh = 0x790; // bool
             public const nint m_iszPathName = 0x798; // CUtlSymbolLarge
-            public const nint m_hPathMover = 0x7A0; // CHandle<CPathMover>
+            public const nint m_hPathMover = 0x7A0; // 
             public const nint m_iszPathNodeStart = 0x7A8; // CUtlSymbolLarge
             public const nint m_eMoveType = 0x7B0; // CFuncMover::Move_t
             public const nint m_bIsReversing = 0x7B4; // bool
@@ -8763,7 +8763,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_hSequence = 0x8; // HSequence
             public const nint m_flPrevCycle = 0xC; // float32
             public const nint m_flCycle = 0x10; // float32
-            public const nint m_flWeight = 0x14; // CNetworkedQuantizedFloat
+            public const nint m_flWeight = 0x14; // 
             public const nint m_bSequenceChangeNetworked = 0x1C; // bool
             public const nint m_bDiscontinuity = 0x1D; // bool
             public const nint m_flPrevCycleFromDiscontinuity = 0x20; // float32
@@ -9815,7 +9815,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_flInMax = 0x4E4; // float32
             public const nint m_OutColor1 = 0x4E8; // Color
             public const nint m_OutColor2 = 0x4EC; // Color
-            public const nint m_OutValue = 0x4F0; // CEntityOutputTemplate<Color>
+            public const nint m_OutValue = 0x4F0; // 
         }
         // Parent: CPointEntity
         // Field count: 5
@@ -10510,7 +10510,7 @@ namespace CS2Dumper.Schemas {
         // Parent: CLogicalEntity
         // Field count: 4
         public static class CLogicLineToEntity {
-            public const nint m_Line = 0x4E0; // CEntityOutputTemplate<Vector>
+            public const nint m_Line = 0x4E0; // 
             public const nint m_SourceName = 0x508; // CUtlSymbolLarge
             public const nint m_StartEntity = 0x510; // CHandle<CBaseEntity>
             public const nint m_EndEntity = 0x514; // CHandle<CBaseEntity>
@@ -11045,7 +11045,7 @@ namespace CS2Dumper.Schemas {
         // NetworkVarNames: m_nBloodType (BloodType)
         public static class CBaseEntity {
             public const nint m_CBodyComponent = 0x38; // CBodyComponent*
-            public const nint m_NetworkTransmitComponent = 0x40; // CNetworkTransmitComponent
+            public const nint m_NetworkTransmitComponent = 0x40; // 
             public const nint m_aThinkFunctions = 0x240; // CUtlVector<thinkfunc_t>
             public const nint m_iCurrentThinkContext = 0x258; // int32
             public const nint m_nLastThinkTick = 0x25C; // GameTick_t
