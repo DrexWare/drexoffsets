@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-01-18 05:03:57.466482400 UTC
+// 2025-01-25 18:33:00.632631800 UTC
 
 namespace CS2Dumper.Schemas {
     // Module: vphysics2.dll
@@ -239,7 +239,7 @@ namespace CS2Dumper.Schemas {
             public const nint nNode = 0x0; // uint16[2]
             public const nint nCollisionMask = 0x4; // uint16
             public const nint nDummy = 0x6; // uint16
-            public const nint flRadius = 0x8; // float32[2]
+            public const nint flRadius = 0x8; // 
         }
         // Parent: None
         // Field count: 4
@@ -1071,7 +1071,7 @@ namespace CS2Dumper.Schemas {
             public const nint strength = 0x0; // float32
             public const nint forceLimit = 0x4; // float32
             public const nint torqueLimit = 0x8; // float32
-            public const nint bodyMassScale = 0xC; // float32[2]
+            public const nint bodyMassScale = 0xC; // 
             public const nint isActive = 0x14; // bool
         }
         // Parent: None
