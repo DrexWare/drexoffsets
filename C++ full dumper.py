@@ -1,19 +1,26 @@
 import json
-import requests
-
+import os
 def get_all_offsets():
     # Fetch all relevant JSON files
+    files = []
+    jsons = []
+    for file in os.listdir("dumped/json/"):
+        files.append(file)
     with open("dumped/json/offsets.json", "r") as file:
         offsets = json.load(file)
     with open("dumped/json/client_dll.json") as file:
         client_dll = json.load(file)
     with open("dumped/json/buttons.json") as file:
         buttons = json.load(file)
-
-    return offsets, client_dll, buttons
+    files.remove("buttons.json" )
+    files.remove("offsets.json")
+    for file in files:
+        with open(f"dumped/json/{file}", "r") as f:
+            jsons.append(json.load(f))
+    return offsets, client_dll, buttons, jsons
 
 def generate_cpp_offsets():
-    offsets, client_dll, buttons = get_all_offsets()
+    offsets, client_dll, buttons, files = get_all_offsets()
     
     cpp_code = [r"#include <cstddef>", 'namespace offsets {']
     class_definitions = {}
@@ -21,7 +28,7 @@ def generate_cpp_offsets():
     file1 = [r"#include <cstddef>", "namespace offsets {"]  # C++ code for offsets.json
     file2 = [r"#include <cstddef>", "namespace client_dll {"]  # C++ code for client_dll.json
     file3 = [r"#include <cstddef>", "namespace buttons {"] # C++ code for buttons.json
-
+    
     # Check offsets.json
     for dll_name, dll_offsets in offsets.items():
         for offset_name, offset_value in dll_offsets.items():
@@ -33,6 +40,10 @@ def generate_cpp_offsets():
             file1.append(f'\t\tconstexpr std::ptrdiff_t {offset_name} = {hex_offset}; // {class_name}')
 
     # Check client_dll.json
+    for i in range(len(files)):
+        
+        for class_name, class_content in files[i].items():
+            print(class_name, class_content)
     for class_name, class_content in client_dll['client.dll']['classes'].items():
         fields = class_content.get('fields', {})
         class_name = class_name.replace('.', '_')  # Replace '.' with '_'
