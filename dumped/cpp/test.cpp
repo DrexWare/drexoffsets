@@ -6792,4 +6792,3 @@ namespace offsets {
 	
 	
 }
-} // namespace offsets
