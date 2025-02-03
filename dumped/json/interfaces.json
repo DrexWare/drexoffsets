@@ -151,7 +151,7 @@
     "SteamAudio001": 2177520
   },
   "steamclient64.dll": {
-    "CLIENTENGINE_INTERFACE_VERSION005": 18446744071758115002,
+    "CLIENTENGINE_INTERFACE_VERSION005": 18446744071758116074,
     "IVALIDATE001": 21639432,
     "SteamClient006": 21629024,
     "SteamClient007": 21629032,
@@ -169,7 +169,7 @@
     "SteamClient019": 21629128,
     "SteamClient020": 21629136,
     "SteamClient021": 21629144,
-    "p2pvoice002": 21898943,
+    "p2pvoice002": 21899071,
     "p2pvoicesingleton002": 21487840
   },
   "tier0.dll": {
