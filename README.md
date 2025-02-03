@@ -17,3 +17,7 @@ Completely automated and i might release the dumper soon!
 
 ## How to use
 Search for the offset you are looking for in this repo and look in either the json or the other file types depending on your needs
+
+
+## dsc.gg/drexwaregg
+join the discord for updated cheats for cs2, valorant fortnite and more!
