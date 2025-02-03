@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-01-29 00:08:29.405864 UTC
+// 2025-02-03 19:16:49.420932 UTC
 
 namespace CS2Dumper.Schemas {
     // Module: particles.dll
@@ -3883,7 +3883,7 @@ namespace CS2Dumper.Schemas {
         // MGetKV3ClassDefaults
         public static class C_OP_LockToPointList {
             public const nint m_nFieldOutput = 0x1C0; // ParticleAttributeIndex_t
-            public const nint m_pointList = 0x1C8; // 
+            public const nint m_pointList = 0x1C8; // CUtlVector<PointDefinition_t>
             public const nint m_bPlaceAlongPath = 0x1E0; // bool
             public const nint m_bClosedLoop = 0x1E1; // bool
             public const nint m_nNumPointsAlongPath = 0x1E4; // int32
@@ -4089,9 +4089,9 @@ namespace CS2Dumper.Schemas {
             public const nint m_flInputScale1 = 0x1D0; // float32
             public const nint m_nFieldInput2 = 0x1D4; // ParticleAttributeIndex_t
             public const nint m_flInputScale2 = 0x1D8; // float32
-            public const nint m_nControlPointInput1 = 0x1DC; // ControlPointReference_t
+            public const nint m_nControlPointInput1 = 0x1DC; // 
             public const nint m_flControlPointScale1 = 0x1F0; // float32
-            public const nint m_nControlPointInput2 = 0x1F4; // ControlPointReference_t
+            public const nint m_nControlPointInput2 = 0x1F4; // 
             public const nint m_flControlPointScale2 = 0x208; // float32
             public const nint m_nFieldOutput = 0x20C; // ParticleAttributeIndex_t
             public const nint m_vFinalOutputScale = 0x210; // Vector
@@ -5823,7 +5823,7 @@ namespace CS2Dumper.Schemas {
         // MGetKV3ClassDefaults
         public static class C_INIT_PointList {
             public const nint m_nFieldOutput = 0x1C8; // ParticleAttributeIndex_t
-            public const nint m_pointList = 0x1D0; // 
+            public const nint m_pointList = 0x1D0; // CUtlVector<PointDefinition_t>
             public const nint m_bPlaceAlongPath = 0x1E8; // bool
             public const nint m_bClosedLoop = 0x1E9; // bool
             public const nint m_nNumPointsAlongPath = 0x1EC; // int32
