@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-02-03 19:16:49.420932 UTC
+// 2025-02-04 01:34:41.653366 UTC
 
 namespace CS2Dumper.Schemas {
     // Module: animationsystem.dll
@@ -4235,7 +4235,7 @@ namespace CS2Dumper.Schemas {
         // Metadata:
         // MGetKV3ClassDefaults
         public static class CNmGraphVariation {
-            public const nint m_graphDefinition = 0x0; // CStrongHandle<InfoForResourceTypeCNmGraphDefinition>
+            public const nint m_graphDefinition = 0x0; // 
             public const nint m_dataSet = 0x8; // CNmGraphDataSet
         }
         // Parent: None
@@ -4517,7 +4517,7 @@ namespace CS2Dumper.Schemas {
         public static class CAnimationGroup {
             public const nint m_nFlags = 0x10; // uint32
             public const nint m_name = 0x18; // CBufferString
-            public const nint m_localHAnimArray_Handle = 0x60; // 
+            public const nint m_localHAnimArray_Handle = 0x60; // CUtlVector<CStrongHandle<InfoForResourceTypeCAnimData>>
             public const nint m_includedGroupArray_Handle = 0x78; // CUtlVector<CStrongHandle<InfoForResourceTypeCAnimationGroup>>
             public const nint m_directHSeqGroup_Handle = 0x90; // CStrongHandle<InfoForResourceTypeCSequenceGroupData>
             public const nint m_decodeKey = 0x98; // CAnimKeyData
@@ -5431,7 +5431,7 @@ namespace CS2Dumper.Schemas {
         // MGetKV3ClassDefaults
         public static class CPoseHandle {
             public const nint m_nIndex = 0x0; // uint16
-            public const nint m_eType = 0x2; // PoseType_t
+            public const nint m_eType = 0x2; // 
         }
         // Parent: CNmIDValueNode__CDefinition
         // Field count: 2
