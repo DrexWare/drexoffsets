@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-02-04 01:34:41.653366 UTC
+// 2025-02-16 02:25:50.877619500 UTC
 
 namespace CS2Dumper.Schemas {
     // Module: pulse_system.dll
@@ -683,7 +683,7 @@ namespace CS2Dumper.Schemas {
         // Metadata:
         // MGetKV3ClassDefaults
         public static class CPulseGraphExecutionHistory {
-            public const nint m_nInstanceID = 0x0; // 
+            public const nint m_nInstanceID = 0x0; // PulseGraphInstanceID_t
             public const nint m_strFileName = 0x8; // CUtlString
             public const nint m_vecHistory = 0x10; // CUtlVector<PulseGraphExecutionHistoryEntry_t*>
             public const nint m_mapCellDesc = 0x28; // CUtlOrderedMap<PulseDocNodeID_t,PulseGraphExecutionHistoryNodeDesc_t*>
