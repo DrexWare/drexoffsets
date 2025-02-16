@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-02-04 01:34:41.653366 UTC
+// 2025-02-16 02:25:50.877619500 UTC
 
 namespace CS2Dumper.Schemas {
     // Module: client.dll
@@ -377,7 +377,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_bHasTriggeredRoundStartMusic = 0xD7C; // bool
             public const nint m_bSwitchingTeamsAtRoundReset = 0xD7D; // bool
             public const nint m_pGameModeRules = 0xD98; // CCSGameModeRules*
-            public const nint m_RetakeRules = 0xDA0; // C_RetakeGameRules
+            public const nint m_RetakeRules = 0xDA0; // 
             public const nint m_nMatchEndCount = 0xEB8; // uint8
             public const nint m_nTTeamIntroVariant = 0xEBC; // int32
             public const nint m_nCTTeamIntroVariant = 0xEC0; // int32
@@ -406,7 +406,7 @@ namespace CS2Dumper.Schemas {
         // Metadata:
         // NetworkVarNames: m_skeletonInstance (CSkeletonInstance)
         public static class CBodyComponentSkeletonInstance {
-            public const nint m_skeletonInstance = 0x50; // CSkeletonInstance
+            public const nint m_skeletonInstance = 0x50; // 
         }
         // Parent: C_CSWeaponBaseGun
         // Field count: 0
@@ -1345,7 +1345,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_bCanCreateGrenadeTrail = 0x11BD; // bool
             public const nint m_nSnapshotTrajectoryEffectIndex = 0x11C0; // ParticleIndex_t
             public const nint m_hSnapshotTrajectoryParticleSnapshot = 0x11C8; // CStrongHandle<InfoForResourceTypeIParticleSnapshot>
-            public const nint m_arrTrajectoryTrailPoints = 0x11D0; // CUtlVector<Vector>
+            public const nint m_arrTrajectoryTrailPoints = 0x11D0; // 
             public const nint m_arrTrajectoryTrailPointCreationTimes = 0x11E8; // CUtlVector<float32>
             public const nint m_flTrajectoryTrailEffectCreationTime = 0x1200; // float32
         }
@@ -1975,7 +1975,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_bBeenEnabled = 0xF90; // bool
             public const nint m_bHide = 0xF91; // bool
             public const nint m_flSeenTargetTime = 0xF94; // float32
-            public const nint m_pTargetPanel = 0xF98; // 
+            public const nint m_pTargetPanel = 0xF98; // C_PointClientUIWorldPanel*
         }
         // Parent: None
         // Field count: 0
@@ -2108,7 +2108,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_vecLastClipCameraForward = 0x1390; // Vector
             public const nint m_bClipHitStaticWorld = 0x139C; // bool
             public const nint m_bCachedPlaneIsValid = 0x139D; // bool
-            public const nint m_pClippingWeapon = 0x13A0; // 
+            public const nint m_pClippingWeapon = 0x13A0; // C_CSWeaponBase*
             public const nint m_previousPlayerState = 0x13A8; // CSPlayerState
             public const nint m_iPlayerState = 0x13AC; // CSPlayerState
             public const nint m_bIsRescuing = 0x13B0; // bool
@@ -2164,7 +2164,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_nLastMagDropAttachmentIndex = 0x14D4; // int32
             public const nint m_vecLastAliveLocalVelocity = 0x14D8; // Vector
             public const nint m_bGuardianShouldSprayCustomXMark = 0x1500; // bool
-            public const nint m_hOriginalController = 0x1508; // 
+            public const nint m_hOriginalController = 0x1508; // CHandle<CCSPlayerController>
         }
         // Parent: C_WeaponBaseItem
         // Field count: 0
@@ -2700,7 +2700,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_pUseServices = 0x11D0; // CPlayer_UseServices*
             public const nint m_pFlashlightServices = 0x11D8; // CPlayer_FlashlightServices*
             public const nint m_pCameraServices = 0x11E0; // CPlayer_CameraServices*
-            public const nint m_pMovementServices = 0x11E8; // CPlayer_MovementServices*
+            public const nint m_pMovementServices = 0x11E8; // 
             public const nint m_ServerViewAngleChanges = 0x11F8; // C_UtlVectorEmbeddedNetworkVar<ViewAngleServerChange_t>
             public const nint m_nHighestConsumedServerViewAngleChangeIndex = 0x1248; // uint32
             public const nint v_angle = 0x124C; // QAngle
@@ -3433,7 +3433,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_iEffectIndex = 0xF38; // CStrongHandle<InfoForResourceTypeIParticleSystemDefinition>
             public const nint m_flStartTime = 0xF40; // GameTime_t
             public const nint m_flPreSimTime = 0xF44; // float32
-            public const nint m_vServerControlPoints = 0xF48; // 
+            public const nint m_vServerControlPoints = 0xF48; // Vector[4]
             public const nint m_iServerControlPointAssignments = 0xF78; // uint8[4]
             public const nint m_hControlPointEnts = 0xF7C; // CHandle<C_BaseEntity>[64]
             public const nint m_bNoSave = 0x107C; // bool
@@ -3616,7 +3616,7 @@ namespace CS2Dumper.Schemas {
         // Metadata:
         // NetworkVarNames: m_Attributes (CEconItemAttribute)
         public static class CAttributeList {
-            public const nint m_Attributes = 0x8; // 
+            public const nint m_Attributes = 0x8; // C_UtlVectorEmbeddedNetworkVar<CEconItemAttribute>
             public const nint m_pManager = 0x58; // CAttributeManager*
         }
         // Parent: C_MultiplayRules
@@ -3700,8 +3700,8 @@ namespace CS2Dumper.Schemas {
         public static class CDamageRecord {
             public const nint m_PlayerDamager = 0x28; // CHandle<C_CSPlayerPawn>
             public const nint m_PlayerRecipient = 0x2C; // CHandle<C_CSPlayerPawn>
-            public const nint m_hPlayerControllerDamager = 0x30; // 
-            public const nint m_hPlayerControllerRecipient = 0x34; // 
+            public const nint m_hPlayerControllerDamager = 0x30; // CHandle<CCSPlayerController>
+            public const nint m_hPlayerControllerRecipient = 0x34; // CHandle<CCSPlayerController>
             public const nint m_szPlayerDamagerName = 0x38; // CUtlString
             public const nint m_szPlayerRecipientName = 0x40; // CUtlString
             public const nint m_DamagerXuid = 0x48; // uint64
@@ -4973,7 +4973,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_bDisabled = 0x568; // bool
             public const nint m_bDisabledOld = 0x569; // bool
             public const nint m_bUpdateOnClient = 0x56A; // bool
-            public const nint m_nInputType = 0x56C; // ValueRemapperInputType_t
+            public const nint m_nInputType = 0x56C; // 
             public const nint m_hRemapLineStart = 0x570; // CHandle<C_BaseEntity>
             public const nint m_hRemapLineEnd = 0x574; // CHandle<C_BaseEntity>
             public const nint m_flMaximumChangePerSecond = 0x578; // float32
@@ -4982,7 +4982,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_bRequiresUseKey = 0x584; // bool
             public const nint m_nOutputType = 0x588; // ValueRemapperOutputType_t
             public const nint m_hOutputEntities = 0x590; // C_NetworkUtlVectorBase<CHandle<C_BaseEntity>>
-            public const nint m_nHapticsType = 0x5A8; // ValueRemapperHapticsType_t
+            public const nint m_nHapticsType = 0x5A8; // 
             public const nint m_nMomentumType = 0x5AC; // ValueRemapperMomentumType_t
             public const nint m_flMomentumModifier = 0x5B0; // float32
             public const nint m_flSnapValue = 0x5B4; // float32
@@ -6326,7 +6326,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_iPawnLifetimeStart = 0x824; // int32
             public const nint m_iPawnLifetimeEnd = 0x828; // int32
             public const nint m_iPawnBotDifficulty = 0x82C; // int32
-            public const nint m_hOriginalControllerOfCurrentPawn = 0x830; // 
+            public const nint m_hOriginalControllerOfCurrentPawn = 0x830; // CHandle<CCSPlayerController>
             public const nint m_iScore = 0x834; // int32
             public const nint m_recentKillQueue = 0x838; // uint8[8]
             public const nint m_nFirstKill = 0x840; // uint8
