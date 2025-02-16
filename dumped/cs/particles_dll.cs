@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-02-04 01:34:41.653366 UTC
+// 2025-02-16 02:25:50.877619500 UTC
 
 namespace CS2Dumper.Schemas {
     // Module: particles.dll
@@ -2779,7 +2779,7 @@ namespace CS2Dumper.Schemas {
         // Metadata:
         // MGetKV3ClassDefaults
         public static class CParticleFunctionRenderer {
-            public const nint VisibilityInputs = 0x1C0; // CParticleVisibilityInputs
+            public const nint VisibilityInputs = 0x1C0; // 
             public const nint m_bCannotBeRefracted = 0x208; // bool
             public const nint m_bSkipRenderingOnMobile = 0x209; // bool
         }
@@ -4089,9 +4089,9 @@ namespace CS2Dumper.Schemas {
             public const nint m_flInputScale1 = 0x1D0; // float32
             public const nint m_nFieldInput2 = 0x1D4; // ParticleAttributeIndex_t
             public const nint m_flInputScale2 = 0x1D8; // float32
-            public const nint m_nControlPointInput1 = 0x1DC; // 
+            public const nint m_nControlPointInput1 = 0x1DC; // ControlPointReference_t
             public const nint m_flControlPointScale1 = 0x1F0; // float32
-            public const nint m_nControlPointInput2 = 0x1F4; // 
+            public const nint m_nControlPointInput2 = 0x1F4; // ControlPointReference_t
             public const nint m_flControlPointScale2 = 0x208; // float32
             public const nint m_nFieldOutput = 0x20C; // ParticleAttributeIndex_t
             public const nint m_vFinalOutputScale = 0x210; // Vector
@@ -5495,7 +5495,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_Gradient = 0x10; // CColorGradient
             public const nint m_nTextureType = 0x28; // SpriteCardTextureType_t
             public const nint m_nTextureChannels = 0x2C; // SpriteCardTextureChannel_t
-            public const nint m_nTextureBlendMode = 0x30; // ParticleTextureLayerBlendType_t
+            public const nint m_nTextureBlendMode = 0x30; // 
             public const nint m_flTextureBlend = 0x38; // CParticleCollectionRendererFloatInput
             public const nint m_TextureControls = 0x198; // TextureControls_t
         }
