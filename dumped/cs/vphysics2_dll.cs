@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-02-16 02:25:50.877619500 UTC
+// 2025-03-03 05:26:24.743428500 UTC
 
 namespace CS2Dumper.Schemas {
     // Module: vphysics2.dll
@@ -721,7 +721,7 @@ namespace CS2Dumper.Schemas {
         public static class FeQuad_t {
             public const nint nNode = 0x0; // uint16[4]
             public const nint flSlack = 0x8; // float32
-            public const nint vShape = 0xC; // 
+            public const nint vShape = 0xC; // Vector4D[4]
         }
         // Parent: None
         // Field count: 6

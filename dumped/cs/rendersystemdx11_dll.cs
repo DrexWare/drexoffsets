@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-02-16 02:25:50.877619500 UTC
+// 2025-03-03 05:26:24.743428500 UTC
 
 namespace CS2Dumper.Schemas {
     // Module: rendersystemdx11.dll
@@ -43,7 +43,7 @@ namespace CS2Dumper.Schemas {
         // Alignment: 1
         // Member count: 8
         public enum RenderMultisampleType_t : byte {
-            RENDER_MULTISAMPLE_INVALID = 0xFFFFFFFFFFFFFFFF,
+            RENDER_MULTISAMPLE_INVALID = unchecked((byte)-1),
             RENDER_MULTISAMPLE_NONE = 0x0,
             RENDER_MULTISAMPLE_2X = 0x1,
             RENDER_MULTISAMPLE_4X = 0x2,
@@ -63,7 +63,7 @@ namespace CS2Dumper.Schemas {
         // Alignment: 4
         // Member count: 3
         public enum RenderSlotType_t : uint {
-            RENDER_SLOT_INVALID = 0xFFFFFFFFFFFFFFFF,
+            RENDER_SLOT_INVALID = unchecked((uint)-1),
             RENDER_SLOT_PER_VERTEX = 0x0,
             RENDER_SLOT_PER_INSTANCE = 0x1
         }

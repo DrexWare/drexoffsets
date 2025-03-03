@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-02-16 02:25:50.877619500 UTC
+// 2025-03-03 05:26:24.743428500 UTC
 
 namespace CS2Dumper.Schemas {
     // Module: worldrenderer.dll
@@ -158,9 +158,9 @@ namespace CS2Dumper.Schemas {
             public const nint m_visClusterMembership = 0x30; // CUtlVector<uint16>
             public const nint m_aggregateSceneObjects = 0x48; // CUtlVector<AggregateSceneObject_t>
             public const nint m_clutterSceneObjects = 0x60; // CUtlVector<ClutterSceneObject_t>
-            public const nint m_extraVertexStreamOverrides = 0x78; // CUtlVector<ExtraVertexStreamOverride_t>
-            public const nint m_materialOverrides = 0x90; // CUtlVector<MaterialOverride_t>
-            public const nint m_extraVertexStreams = 0xA8; // 
+            public const nint m_extraVertexStreamOverrides = 0x78; // 
+            public const nint m_materialOverrides = 0x90; // 
+            public const nint m_extraVertexStreams = 0xA8; // CUtlVector<WorldNodeOnDiskBufferData_t>
             public const nint m_layerNames = 0xC0; // CUtlVector<CUtlString>
             public const nint m_sceneObjectLayerIndices = 0xD8; // CUtlVector<uint8>
             public const nint m_overlayLayerIndices = 0xF0; // CUtlVector<uint8>
@@ -255,7 +255,7 @@ namespace CS2Dumper.Schemas {
         // Metadata:
         // MGetKV3ClassDefaults
         public static class World_t {
-            public const nint m_builderParams = 0x0; // 
+            public const nint m_builderParams = 0x0; // WorldBuilderParams_t
             public const nint m_worldNodes = 0x48; // CUtlVector<NodeData_t>
             public const nint m_worldLightingInfo = 0x60; // BakedLightingInfo_t
             public const nint m_entityLumps = 0x90; // CUtlVector<CStrongHandleCopyable<InfoForResourceTypeCEntityLump>>
