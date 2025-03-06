@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-03-03 05:26:24.743428500 UTC
+// 2025-03-06 01:51:32.068275100 UTC
 
 #pragma once
 
@@ -163,9 +163,9 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_visClusterMembership = 0x30; // CUtlVector<uint16>
                 constexpr std::ptrdiff_t m_aggregateSceneObjects = 0x48; // CUtlVector<AggregateSceneObject_t>
                 constexpr std::ptrdiff_t m_clutterSceneObjects = 0x60; // CUtlVector<ClutterSceneObject_t>
-                constexpr std::ptrdiff_t m_extraVertexStreamOverrides = 0x78; // 
-                constexpr std::ptrdiff_t m_materialOverrides = 0x90; // 
-                constexpr std::ptrdiff_t m_extraVertexStreams = 0xA8; // CUtlVector<WorldNodeOnDiskBufferData_t>
+                constexpr std::ptrdiff_t m_extraVertexStreamOverrides = 0x78; // CUtlVector<ExtraVertexStreamOverride_t>
+                constexpr std::ptrdiff_t m_materialOverrides = 0x90; // CUtlVector<MaterialOverride_t>
+                constexpr std::ptrdiff_t m_extraVertexStreams = 0xA8; // 
                 constexpr std::ptrdiff_t m_layerNames = 0xC0; // CUtlVector<CUtlString>
                 constexpr std::ptrdiff_t m_sceneObjectLayerIndices = 0xD8; // CUtlVector<uint8>
                 constexpr std::ptrdiff_t m_overlayLayerIndices = 0xF0; // CUtlVector<uint8>
@@ -260,7 +260,7 @@ namespace cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             namespace World_t {
-                constexpr std::ptrdiff_t m_builderParams = 0x0; // WorldBuilderParams_t
+                constexpr std::ptrdiff_t m_builderParams = 0x0; // 
                 constexpr std::ptrdiff_t m_worldNodes = 0x48; // CUtlVector<NodeData_t>
                 constexpr std::ptrdiff_t m_worldLightingInfo = 0x60; // BakedLightingInfo_t
                 constexpr std::ptrdiff_t m_entityLumps = 0x90; // CUtlVector<CStrongHandleCopyable<InfoForResourceTypeCEntityLump>>

@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-03-03 05:26:24.743428500 UTC
+// 2025-03-06 01:51:32.068275100 UTC
 
 #![allow(non_upper_case_globals, non_camel_case_types, non_snake_case, unused)]
 
@@ -2858,7 +2858,7 @@ pub mod cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             pub mod CParticleFunctionRenderer {
-                pub const VisibilityInputs: usize = 0x1C0; // 
+                pub const VisibilityInputs: usize = 0x1C0; // CParticleVisibilityInputs
                 pub const m_bCannotBeRefracted: usize = 0x208; // bool
                 pub const m_bSkipRenderingOnMobile: usize = 0x209; // bool
             }
@@ -5573,8 +5573,8 @@ pub mod cs2_dumper {
                 pub const m_hTexture: usize = 0x8; // CStrongHandle<InfoForResourceTypeCTextureBase>
                 pub const m_Gradient: usize = 0x10; // CColorGradient
                 pub const m_nTextureType: usize = 0x28; // SpriteCardTextureType_t
-                pub const m_nTextureChannels: usize = 0x2C; // 
-                pub const m_nTextureBlendMode: usize = 0x30; // ParticleTextureLayerBlendType_t
+                pub const m_nTextureChannels: usize = 0x2C; // SpriteCardTextureChannel_t
+                pub const m_nTextureBlendMode: usize = 0x30; // 
                 pub const m_flTextureBlend: usize = 0x38; // CParticleCollectionRendererFloatInput
                 pub const m_TextureControls: usize = 0x198; // TextureControls_t
             }

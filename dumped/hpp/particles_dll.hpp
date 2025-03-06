@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-03-03 05:26:24.743428500 UTC
+// 2025-03-06 01:51:32.068275100 UTC
 
 #pragma once
 
@@ -2784,7 +2784,7 @@ namespace cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             namespace CParticleFunctionRenderer {
-                constexpr std::ptrdiff_t VisibilityInputs = 0x1C0; // 
+                constexpr std::ptrdiff_t VisibilityInputs = 0x1C0; // CParticleVisibilityInputs
                 constexpr std::ptrdiff_t m_bCannotBeRefracted = 0x208; // bool
                 constexpr std::ptrdiff_t m_bSkipRenderingOnMobile = 0x209; // bool
             }
@@ -5499,8 +5499,8 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_hTexture = 0x8; // CStrongHandle<InfoForResourceTypeCTextureBase>
                 constexpr std::ptrdiff_t m_Gradient = 0x10; // CColorGradient
                 constexpr std::ptrdiff_t m_nTextureType = 0x28; // SpriteCardTextureType_t
-                constexpr std::ptrdiff_t m_nTextureChannels = 0x2C; // 
-                constexpr std::ptrdiff_t m_nTextureBlendMode = 0x30; // ParticleTextureLayerBlendType_t
+                constexpr std::ptrdiff_t m_nTextureChannels = 0x2C; // SpriteCardTextureChannel_t
+                constexpr std::ptrdiff_t m_nTextureBlendMode = 0x30; // 
                 constexpr std::ptrdiff_t m_flTextureBlend = 0x38; // CParticleCollectionRendererFloatInput
                 constexpr std::ptrdiff_t m_TextureControls = 0x198; // TextureControls_t
             }

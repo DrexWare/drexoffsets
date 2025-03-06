@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-03-03 05:26:24.743428500 UTC
+// 2025-03-06 01:51:32.068275100 UTC
 
 namespace CS2Dumper.Schemas {
     // Module: particles.dll
@@ -2779,7 +2779,7 @@ namespace CS2Dumper.Schemas {
         // Metadata:
         // MGetKV3ClassDefaults
         public static class CParticleFunctionRenderer {
-            public const nint VisibilityInputs = 0x1C0; // 
+            public const nint VisibilityInputs = 0x1C0; // CParticleVisibilityInputs
             public const nint m_bCannotBeRefracted = 0x208; // bool
             public const nint m_bSkipRenderingOnMobile = 0x209; // bool
         }
@@ -5494,8 +5494,8 @@ namespace CS2Dumper.Schemas {
             public const nint m_hTexture = 0x8; // CStrongHandle<InfoForResourceTypeCTextureBase>
             public const nint m_Gradient = 0x10; // CColorGradient
             public const nint m_nTextureType = 0x28; // SpriteCardTextureType_t
-            public const nint m_nTextureChannels = 0x2C; // 
-            public const nint m_nTextureBlendMode = 0x30; // ParticleTextureLayerBlendType_t
+            public const nint m_nTextureChannels = 0x2C; // SpriteCardTextureChannel_t
+            public const nint m_nTextureBlendMode = 0x30; // 
             public const nint m_flTextureBlend = 0x38; // CParticleCollectionRendererFloatInput
             public const nint m_TextureControls = 0x198; // TextureControls_t
         }

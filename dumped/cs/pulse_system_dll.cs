@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-03-03 05:26:24.743428500 UTC
+// 2025-03-06 01:51:32.068275100 UTC
 
 namespace CS2Dumper.Schemas {
     // Module: pulse_system.dll
@@ -332,7 +332,7 @@ namespace CS2Dumper.Schemas {
         // Metadata:
         // MGetKV3ClassDefaults
         public static class PulseGraphExecutionHistoryCursorDesc_t {
-            public const nint vecAncestorCursorIDs = 0x0; // 
+            public const nint vecAncestorCursorIDs = 0x0; // CUtlVector<PulseCursorID_t>
             public const nint nSpawnNodeID = 0x18; // PulseDocNodeID_t
             public const nint nRetiredAtNodeID = 0x1C; // PulseDocNodeID_t
             public const nint flLastReferenced = 0x20; // float32
@@ -683,7 +683,7 @@ namespace CS2Dumper.Schemas {
         // Metadata:
         // MGetKV3ClassDefaults
         public static class CPulseGraphExecutionHistory {
-            public const nint m_nInstanceID = 0x0; // PulseGraphInstanceID_t
+            public const nint m_nInstanceID = 0x0; // 
             public const nint m_strFileName = 0x8; // CUtlString
             public const nint m_vecHistory = 0x10; // CUtlVector<PulseGraphExecutionHistoryEntry_t*>
             public const nint m_mapCellDesc = 0x28; // CUtlOrderedMap<PulseDocNodeID_t,PulseGraphExecutionHistoryNodeDesc_t*>
@@ -735,7 +735,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_nInvokeBindingIndex = 0x10; // PulseRuntimeInvokeIndex_t
             public const nint m_nChunk = 0x14; // PulseRuntimeChunkIndex_t
             public const nint m_nDestInstruction = 0x18; // int32
-            public const nint m_nCallInfoIndex = 0x1C; // PulseRuntimeCallInfoIndex_t
+            public const nint m_nCallInfoIndex = 0x1C; // 
             public const nint m_nConstIdx = 0x20; // PulseRuntimeConstantIndex_t
             public const nint m_nDomainValueIdx = 0x22; // PulseRuntimeDomainValueIndex_t
             public const nint m_nBlackboardReferenceIdx = 0x24; // PulseRuntimeBlackboardReferenceIndex_t
@@ -973,7 +973,7 @@ namespace CS2Dumper.Schemas {
         // Metadata:
         // MGetKV3ClassDefaults
         public static class CPulse_BlackboardReference {
-            public const nint m_hBlackboardResource = 0x0; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeIPulseGraphDef>>
+            public const nint m_hBlackboardResource = 0x0; // 
             public const nint m_BlackboardResource = 0xE0; // CUtlSymbolLarge
             public const nint m_nNodeID = 0xE8; // PulseDocNodeID_t
             public const nint m_NodeName = 0xF0; // CGlobalSymbol

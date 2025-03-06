@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-03-03 05:26:24.743428500 UTC
+// 2025-03-06 01:51:32.068275100 UTC
 
 #![allow(non_upper_case_globals, non_camel_case_types, non_snake_case, unused)]
 
@@ -344,7 +344,7 @@ pub mod cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             pub mod PulseGraphExecutionHistoryCursorDesc_t {
-                pub const vecAncestorCursorIDs: usize = 0x0; // 
+                pub const vecAncestorCursorIDs: usize = 0x0; // CUtlVector<PulseCursorID_t>
                 pub const nSpawnNodeID: usize = 0x18; // PulseDocNodeID_t
                 pub const nRetiredAtNodeID: usize = 0x1C; // PulseDocNodeID_t
                 pub const flLastReferenced: usize = 0x20; // float32
@@ -695,7 +695,7 @@ pub mod cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             pub mod CPulseGraphExecutionHistory {
-                pub const m_nInstanceID: usize = 0x0; // PulseGraphInstanceID_t
+                pub const m_nInstanceID: usize = 0x0; // 
                 pub const m_strFileName: usize = 0x8; // CUtlString
                 pub const m_vecHistory: usize = 0x10; // CUtlVector<PulseGraphExecutionHistoryEntry_t*>
                 pub const m_mapCellDesc: usize = 0x28; // CUtlOrderedMap<PulseDocNodeID_t,PulseGraphExecutionHistoryNodeDesc_t*>
@@ -747,7 +747,7 @@ pub mod cs2_dumper {
                 pub const m_nInvokeBindingIndex: usize = 0x10; // PulseRuntimeInvokeIndex_t
                 pub const m_nChunk: usize = 0x14; // PulseRuntimeChunkIndex_t
                 pub const m_nDestInstruction: usize = 0x18; // int32
-                pub const m_nCallInfoIndex: usize = 0x1C; // PulseRuntimeCallInfoIndex_t
+                pub const m_nCallInfoIndex: usize = 0x1C; // 
                 pub const m_nConstIdx: usize = 0x20; // PulseRuntimeConstantIndex_t
                 pub const m_nDomainValueIdx: usize = 0x22; // PulseRuntimeDomainValueIndex_t
                 pub const m_nBlackboardReferenceIdx: usize = 0x24; // PulseRuntimeBlackboardReferenceIndex_t
@@ -985,7 +985,7 @@ pub mod cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             pub mod CPulse_BlackboardReference {
-                pub const m_hBlackboardResource: usize = 0x0; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeIPulseGraphDef>>
+                pub const m_hBlackboardResource: usize = 0x0; // 
                 pub const m_BlackboardResource: usize = 0xE0; // CUtlSymbolLarge
                 pub const m_nNodeID: usize = 0xE8; // PulseDocNodeID_t
                 pub const m_NodeName: usize = 0xF0; // CGlobalSymbol

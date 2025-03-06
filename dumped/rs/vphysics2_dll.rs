@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-03-03 05:26:24.743428500 UTC
+// 2025-03-06 01:51:32.068275100 UTC
 
 #![allow(non_upper_case_globals, non_camel_case_types, non_snake_case, unused)]
 
@@ -726,7 +726,7 @@ pub mod cs2_dumper {
             pub mod FeQuad_t {
                 pub const nNode: usize = 0x0; // uint16[4]
                 pub const flSlack: usize = 0x8; // float32
-                pub const vShape: usize = 0xC; // Vector4D[4]
+                pub const vShape: usize = 0xC; // 
             }
             // Parent: None
             // Field count: 6

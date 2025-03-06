@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-03-03 05:26:24.743428500 UTC
+// 2025-03-06 01:51:32.068275100 UTC
 
 #pragma once
 
@@ -726,7 +726,7 @@ namespace cs2_dumper {
             namespace FeQuad_t {
                 constexpr std::ptrdiff_t nNode = 0x0; // uint16[4]
                 constexpr std::ptrdiff_t flSlack = 0x8; // float32
-                constexpr std::ptrdiff_t vShape = 0xC; // Vector4D[4]
+                constexpr std::ptrdiff_t vShape = 0xC; // 
             }
             // Parent: None
             // Field count: 6

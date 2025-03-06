@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-03-03 05:26:24.743428500 UTC
+// 2025-03-06 01:51:32.068275100 UTC
 
 #pragma once
 
@@ -337,7 +337,7 @@ namespace cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             namespace PulseGraphExecutionHistoryCursorDesc_t {
-                constexpr std::ptrdiff_t vecAncestorCursorIDs = 0x0; // 
+                constexpr std::ptrdiff_t vecAncestorCursorIDs = 0x0; // CUtlVector<PulseCursorID_t>
                 constexpr std::ptrdiff_t nSpawnNodeID = 0x18; // PulseDocNodeID_t
                 constexpr std::ptrdiff_t nRetiredAtNodeID = 0x1C; // PulseDocNodeID_t
                 constexpr std::ptrdiff_t flLastReferenced = 0x20; // float32
@@ -688,7 +688,7 @@ namespace cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             namespace CPulseGraphExecutionHistory {
-                constexpr std::ptrdiff_t m_nInstanceID = 0x0; // PulseGraphInstanceID_t
+                constexpr std::ptrdiff_t m_nInstanceID = 0x0; // 
                 constexpr std::ptrdiff_t m_strFileName = 0x8; // CUtlString
                 constexpr std::ptrdiff_t m_vecHistory = 0x10; // CUtlVector<PulseGraphExecutionHistoryEntry_t*>
                 constexpr std::ptrdiff_t m_mapCellDesc = 0x28; // CUtlOrderedMap<PulseDocNodeID_t,PulseGraphExecutionHistoryNodeDesc_t*>
@@ -740,7 +740,7 @@ namespace cs2_dumper {
                 constexpr std::ptrdiff_t m_nInvokeBindingIndex = 0x10; // PulseRuntimeInvokeIndex_t
                 constexpr std::ptrdiff_t m_nChunk = 0x14; // PulseRuntimeChunkIndex_t
                 constexpr std::ptrdiff_t m_nDestInstruction = 0x18; // int32
-                constexpr std::ptrdiff_t m_nCallInfoIndex = 0x1C; // PulseRuntimeCallInfoIndex_t
+                constexpr std::ptrdiff_t m_nCallInfoIndex = 0x1C; // 
                 constexpr std::ptrdiff_t m_nConstIdx = 0x20; // PulseRuntimeConstantIndex_t
                 constexpr std::ptrdiff_t m_nDomainValueIdx = 0x22; // PulseRuntimeDomainValueIndex_t
                 constexpr std::ptrdiff_t m_nBlackboardReferenceIdx = 0x24; // PulseRuntimeBlackboardReferenceIndex_t
@@ -978,7 +978,7 @@ namespace cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             namespace CPulse_BlackboardReference {
-                constexpr std::ptrdiff_t m_hBlackboardResource = 0x0; // CResourceNameTyped<CWeakHandle<InfoForResourceTypeIPulseGraphDef>>
+                constexpr std::ptrdiff_t m_hBlackboardResource = 0x0; // 
                 constexpr std::ptrdiff_t m_BlackboardResource = 0xE0; // CUtlSymbolLarge
                 constexpr std::ptrdiff_t m_nNodeID = 0xE8; // PulseDocNodeID_t
                 constexpr std::ptrdiff_t m_NodeName = 0xF0; // CGlobalSymbol

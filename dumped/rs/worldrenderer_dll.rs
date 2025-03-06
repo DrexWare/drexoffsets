@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-03-03 05:26:24.743428500 UTC
+// 2025-03-06 01:51:32.068275100 UTC
 
 #![allow(non_upper_case_globals, non_camel_case_types, non_snake_case, unused)]
 
@@ -162,9 +162,9 @@ pub mod cs2_dumper {
                 pub const m_visClusterMembership: usize = 0x30; // CUtlVector<uint16>
                 pub const m_aggregateSceneObjects: usize = 0x48; // CUtlVector<AggregateSceneObject_t>
                 pub const m_clutterSceneObjects: usize = 0x60; // CUtlVector<ClutterSceneObject_t>
-                pub const m_extraVertexStreamOverrides: usize = 0x78; // 
-                pub const m_materialOverrides: usize = 0x90; // 
-                pub const m_extraVertexStreams: usize = 0xA8; // CUtlVector<WorldNodeOnDiskBufferData_t>
+                pub const m_extraVertexStreamOverrides: usize = 0x78; // CUtlVector<ExtraVertexStreamOverride_t>
+                pub const m_materialOverrides: usize = 0x90; // CUtlVector<MaterialOverride_t>
+                pub const m_extraVertexStreams: usize = 0xA8; // 
                 pub const m_layerNames: usize = 0xC0; // CUtlVector<CUtlString>
                 pub const m_sceneObjectLayerIndices: usize = 0xD8; // CUtlVector<uint8>
                 pub const m_overlayLayerIndices: usize = 0xF0; // CUtlVector<uint8>
@@ -259,7 +259,7 @@ pub mod cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             pub mod World_t {
-                pub const m_builderParams: usize = 0x0; // WorldBuilderParams_t
+                pub const m_builderParams: usize = 0x0; // 
                 pub const m_worldNodes: usize = 0x48; // CUtlVector<NodeData_t>
                 pub const m_worldLightingInfo: usize = 0x60; // BakedLightingInfo_t
                 pub const m_entityLumps: usize = 0x90; // CUtlVector<CStrongHandleCopyable<InfoForResourceTypeCEntityLump>>

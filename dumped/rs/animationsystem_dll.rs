@@ -1,5 +1,5 @@
 // Generated using https://github.com/a2x/cs2-dumper
-// 2025-03-03 05:26:24.743428500 UTC
+// 2025-03-06 01:51:32.068275100 UTC
 
 #![allow(non_upper_case_globals, non_camel_case_types, non_snake_case, unused)]
 
@@ -1174,7 +1174,7 @@ pub mod cs2_dumper {
                 pub const m_nFrames: usize = 0x10; // int32
                 pub const m_nFramesPerBlock: usize = 0x14; // int32
                 pub const m_frameblockArray: usize = 0x18; // CUtlVector<CAnimFrameBlockAnim>
-                pub const m_usageDifferences: usize = 0x30; // 
+                pub const m_usageDifferences: usize = 0x30; // CAnimEncodeDifference
             }
             // Parent: None
             // Field count: 1
@@ -1464,7 +1464,7 @@ pub mod cs2_dumper {
             pub mod CMotionGraph {
                 pub const m_paramSpans: usize = 0x10; // CParamSpanUpdater
                 pub const m_tags: usize = 0x28; // CUtlVector<TagSpan_t>
-                pub const m_pRootNode: usize = 0x40; // 
+                pub const m_pRootNode: usize = 0x40; // CSmartPtr<CMotionNode>
                 pub const m_nParameterCount: usize = 0x48; // int32
                 pub const m_nConfigStartIndex: usize = 0x4C; // int32
                 pub const m_nConfigCount: usize = 0x50; // int32
@@ -2327,12 +2327,12 @@ pub mod cs2_dumper {
             // MGetKV3ClassDefaults
             pub mod CNmSkeleton {
                 pub const m_ID: usize = 0x0; // CGlobalSymbol
-                pub const m_boneIDs: usize = 0x8; // CUtlLeanVector<CGlobalSymbol>
+                pub const m_boneIDs: usize = 0x8; // 
                 pub const m_parentIndices: usize = 0x18; // CUtlVector<int32>
                 pub const m_parentSpaceReferencePose: usize = 0x30; // CUtlVector<CTransform>
                 pub const m_modelSpaceReferencePose: usize = 0x48; // CUtlVector<CTransform>
                 pub const m_numBonesToSampleAtLowLOD: usize = 0x60; // int32
-                pub const m_boneMasks: usize = 0x68; // CUtlLeanVector<CNmBoneMask>
+                pub const m_boneMasks: usize = 0x68; // 
             }
             // Parent: CMotionMetricEvaluator
             // Field count: 2
@@ -2754,7 +2754,7 @@ pub mod cs2_dumper {
             pub mod SkeletonAnimCapture_t {
                 pub const m_nEntIndex: usize = 0x0; // CEntityIndex
                 pub const m_nEntParent: usize = 0x4; // CEntityIndex
-                pub const m_ImportedCollision: usize = 0x8; // 
+                pub const m_ImportedCollision: usize = 0x8; // CUtlVector<CEntityIndex>
                 pub const m_ModelName: usize = 0x20; // CUtlString
                 pub const m_CaptureName: usize = 0x28; // CUtlString
                 pub const m_ModelBindPose: usize = 0x30; // CUtlVector<SkeletonAnimCapture_t::Bone_t>
@@ -3680,9 +3680,9 @@ pub mod cs2_dumper {
                 pub const m_localSequenceNameArray: usize = 0x28; // CUtlVector<CBufferString>
                 pub const m_localS1SeqDescArray: usize = 0x40; // CUtlVector<CSeqS1SeqDesc>
                 pub const m_localMultiSeqDescArray: usize = 0x58; // CUtlVector<CSeqS1SeqDesc>
-                pub const m_localSynthAnimDescArray: usize = 0x70; // 
-                pub const m_localCmdSeqDescArray: usize = 0x88; // 
-                pub const m_localBoneMaskArray: usize = 0xA0; // 
+                pub const m_localSynthAnimDescArray: usize = 0x70; // CUtlVector<CSeqSynthAnimDesc>
+                pub const m_localCmdSeqDescArray: usize = 0x88; // CUtlVector<CSeqCmdSeqDesc>
+                pub const m_localBoneMaskArray: usize = 0xA0; // CUtlVector<CSeqBoneMaskList>
                 pub const m_localScaleSetArray: usize = 0xB8; // CUtlVector<CSeqScaleSet>
                 pub const m_localBoneNameArray: usize = 0xD0; // CUtlVector<CBufferString>
                 pub const m_localNodeName: usize = 0xE8; // CBufferString
@@ -4009,7 +4009,7 @@ pub mod cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             pub mod CMovementComponentUpdater {
-                pub const m_motors: usize = 0x30; // CUtlVector<CSmartPtr<CAnimMotorUpdaterBase>>
+                pub const m_motors: usize = 0x30; // 
                 pub const m_facingDamping: usize = 0x48; // CAnimInputDamping
                 pub const m_nDefaultMotorIndex: usize = 0x60; // int32
                 pub const m_flDefaultRunSpeed: usize = 0x64; // float32
@@ -4643,7 +4643,7 @@ pub mod cs2_dumper {
                 pub const m_trackCompressionSettings: usize = 0x28; // CUtlVector<NmCompressionSettings_t>
                 pub const m_compressedPoseOffsets: usize = 0x40; // CUtlVector<uint32>
                 pub const m_syncTrack: usize = 0xA0; // CNmSyncTrack
-                pub const m_rootMotion: usize = 0x150; // CNmRootMotionData
+                pub const m_rootMotion: usize = 0x150; // 
                 pub const m_bIsAdditive: usize = 0x1A0; // bool
             }
             // Parent: CAnimActionUpdater
@@ -5154,7 +5154,7 @@ pub mod cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             pub mod MotionBlendItem {
-                pub const m_pChild: usize = 0x0; // 
+                pub const m_pChild: usize = 0x0; // CSmartPtr<CMotionNode>
                 pub const m_flKeyValue: usize = 0x8; // float32
             }
             // Parent: CBoneConstraintBase
@@ -5528,7 +5528,7 @@ pub mod cs2_dumper {
             // MGetKV3ClassDefaults
             pub mod CPoseHandle {
                 pub const m_nIndex: usize = 0x0; // uint16
-                pub const m_eType: usize = 0x2; // 
+                pub const m_eType: usize = 0x2; // PoseType_t
             }
             // Parent: CNmIDValueNode__CDefinition
             // Field count: 2
@@ -5921,7 +5921,7 @@ pub mod cs2_dumper {
             // Metadata:
             // MGetKV3ClassDefaults
             pub mod CMotionNodeBlend1D {
-                pub const m_blendItems: usize = 0x28; // CUtlVector<MotionBlendItem>
+                pub const m_blendItems: usize = 0x28; // 
                 pub const m_nParamIndex: usize = 0x40; // int32
             }
             // Parent: CNmTargetValueNode__CDefinition
