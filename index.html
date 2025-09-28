@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>advantage.wtf - CS2 SDK Viewer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
       --bg: #18181b;
@@ -18,6 +20,7 @@
 
     * {
       box-sizing: border-box;
+      cursor: none; /* hide default cursor */
     }
 
     body {
@@ -26,56 +29,57 @@
       background: var(--bg);
       color: var(--text);
       display: flex;
+      flex-direction: column;
       height: 100vh;
       overflow: hidden;
     }
 
-    header {
+    /* Cursor */
+    .cursor {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      transition: transform 0.1s ease;
+      z-index: 2000;
+    }
+
+    header {
       height: 60px;
       background: var(--sidebar);
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      font-weight: bold;
-      color: var(--accent);
+      justify-content: space-between;
+      padding: 0 1rem;
       z-index: 100;
     }
 
-    .container {
+    .brand {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: var(--accent);
       display: flex;
-      flex: 1;
-      margin-top: 60px;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    /* Sidebar */
-    .sidebar {
-      width: 280px;
-      background: var(--sidebar);
-      border-right: 1px solid var(--border);
+    .header-right {
       display: flex;
-      flex-direction: column;
-      transition: width var(--transition);
-      overflow-y: auto;
-    }
-
-    .search {
-      padding: 0.75rem;
+      align-items: center;
+      gap: 1rem;
     }
 
     .search input {
-      width: 100%;
-      padding: 0.5rem 0.75rem;
+      padding: 0.45rem 0.8rem;
       border-radius: 8px;
       border: 1px solid var(--border);
       background: #111;
       color: var(--text);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       transition: border var(--transition);
     }
 
@@ -84,20 +88,55 @@
       border: 1px solid var(--accent);
     }
 
+    .btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: transform var(--transition), background var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      background: #9333ea;
+    }
+
+    .container {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 280px;
+      background: var(--sidebar);
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
+    }
+
     .class-list {
       flex: 1;
       overflow-y: auto;
+      padding-top: 0.5rem;
     }
 
     .class-item {
       padding: 0.6rem 1rem;
       cursor: pointer;
-      transition: background var(--transition);
+      transition: background var(--transition), transform var(--transition);
       border-left: 3px solid transparent;
     }
 
     .class-item:hover {
       background: #2a2a2e;
+      transform: translateX(3px);
     }
 
     .class-item.active {
@@ -119,9 +158,21 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    h2 {
-      margin-top: 0;
-      color: var(--accent);
+    h2.typing {
+      border-right: 2px solid var(--accent);
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 2s steps(30, end) forwards, blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent }
     }
 
     h3 {
@@ -157,18 +208,41 @@
       padding: 1rem 1.5rem;
       box-shadow: 0 2px 6px rgba(0,0,0,0.3);
       margin-bottom: 1.5rem;
-      animation: fadeIn 0.3s ease;
+      animation: fadeIn 0.3s ease, scaleIn 0.2s ease;
+    }
+
+    @keyframes scaleIn {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    footer {
+      text-align: center;
+      padding: 0.6rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: var(--sidebar);
     }
   </style>
 </head>
 <body>
-  <header>advantage.wtf - CS2 SDK Viewer</header>
+  <div class="cursor"></div>
+
+  <header>
+    <div class="brand"><i class="fa-solid fa-code"></i> advantage.wtf</div>
+    <div class="header-right">
+      <div class="search">
+        <input type="text" id="searchBar" placeholder="Search classes...">
+      </div>
+      <a href="https://discord.gg/mUwbMhGf" target="_blank" class="btn">
+        <i class="fa-brands fa-discord"></i> Join Discord
+      </a>
+    </div>
+  </header>
 
   <div class="container">
     <aside class="sidebar">
-      <div class="search">
-        <input type="text" id="searchBar" placeholder="🔍 Search classes...">
-      </div>
       <div class="class-list" id="classList"></div>
     </aside>
 
@@ -176,6 +250,10 @@
       <p style="color: var(--muted);">Select a class from the left to view details.</p>
     </main>
   </div>
+
+  <footer>
+    SDK dumped by <b>cloud</b> — site created by <b>cloud</b>
+  </footer>
 
   <script>
     const JSON_FILES = [
@@ -231,6 +309,7 @@
       card.className = "card";
 
       const title = document.createElement("h2");
+      title.className = "typing";
       title.textContent = `class ${className}${cls.parent ? " : " + cls.parent : ""}`;
       card.appendChild(title);
 
@@ -295,6 +374,13 @@
     });
 
     fetchData();
+
+    // Custom cursor
+    const cursor = document.querySelector(".cursor");
+    document.addEventListener("mousemove", e => {
+      cursor.style.left = e.pageX + "px";
+      cursor.style.top = e.pageY + "px";
+    });
   </script>
 </body>
 </html>
