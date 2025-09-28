@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>advantage.wtf - CS2 SDK Viewer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     :root {
@@ -20,7 +19,7 @@
 
     * {
       box-sizing: border-box;
-      cursor: none; /* hide default cursor */
+      cursor: none;
     }
 
     body {
@@ -34,17 +33,18 @@
       overflow: hidden;
     }
 
-    /* Cursor */
+    /* Custom Cursor */
     .cursor {
-      width: 20px;
-      height: 20px;
-      border: 2px solid var(--accent);
+      width: 10px;
+      height: 10px;
+      background: var(--accent);
       border-radius: 50%;
       position: fixed;
       transform: translate(-50%, -50%);
       pointer-events: none;
-      transition: transform 0.1s ease;
       z-index: 2000;
+      box-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
+      transition: transform 0.1s ease;
     }
 
     header {
@@ -73,6 +73,7 @@
       gap: 1rem;
     }
 
+    /* Typing animation in placeholder */
     .search input {
       padding: 0.45rem 0.8rem;
       border-radius: 8px;
@@ -158,21 +159,10 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    h2.typing {
-      border-right: 2px solid var(--accent);
-      white-space: nowrap;
-      overflow: hidden;
-      width: 0;
-      animation: typing 2s steps(30, end) forwards, blink 0.75s step-end infinite;
-    }
-
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-
-    @keyframes blink {
-      50% { border-color: transparent }
+    h2 {
+      margin: 0 0 1rem;
+      font-size: 1.4rem;
+      color: var(--accent);
     }
 
     h3 {
@@ -181,25 +171,50 @@
       color: var(--accent);
     }
 
+    /* Custom table style */
+    .table-wrapper {
+      overflow-x: auto;
+    }
+
     table {
       width: 100%;
-      border-collapse: collapse;
+      border-spacing: 0;
       margin-bottom: 1rem;
       font-size: 0.9rem;
-      border-radius: 8px;
+      border-radius: 10px;
       overflow: hidden;
     }
 
+    table thead {
+      background: #333;
+    }
+
     table th, table td {
-      padding: 0.5rem 0.75rem;
-      border: 1px solid var(--border);
+      padding: 0.8rem 1rem;
       text-align: left;
     }
 
     table th {
-      background: #333;
       color: var(--accent);
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    table tbody tr {
+      background: var(--card);
+      transition: background var(--transition);
+    }
+
+    table tbody tr:nth-child(odd) {
+      background: #1f1f23;
+    }
+
+    table tbody tr:hover {
+      background: #323236;
+    }
+
+    table td {
+      border-top: 1px solid var(--border);
     }
 
     .card {
@@ -233,7 +248,7 @@
     <div class="brand"><i class="fa-solid fa-code"></i> advantage.wtf</div>
     <div class="header-right">
       <div class="search">
-        <input type="text" id="searchBar" placeholder="Search classes...">
+        <input type="text" id="searchBar" placeholder="">
       </div>
       <a href="https://discord.gg/mUwbMhGf" target="_blank" class="btn">
         <i class="fa-brands fa-discord"></i> Join Discord
@@ -309,7 +324,6 @@
       card.className = "card";
 
       const title = document.createElement("h2");
-      title.className = "typing";
       title.textContent = `class ${className}${cls.parent ? " : " + cls.parent : ""}`;
       card.appendChild(title);
 
@@ -318,6 +332,9 @@
         const h3 = document.createElement("h3");
         h3.textContent = "Fields";
         card.appendChild(h3);
+
+        const tableWrapper = document.createElement("div");
+        tableWrapper.className = "table-wrapper";
 
         const table = document.createElement("table");
         table.innerHTML = "<thead><tr><th>Name</th><th>Type</th><th>Offset</th></tr></thead>";
@@ -340,7 +357,8 @@
         }
 
         table.appendChild(tbody);
-        card.appendChild(table);
+        tableWrapper.appendChild(table);
+        card.appendChild(tableWrapper);
       }
 
       // Methods
@@ -348,6 +366,9 @@
         const h3 = document.createElement("h3");
         h3.textContent = "Methods";
         card.appendChild(h3);
+
+        const tableWrapper = document.createElement("div");
+        tableWrapper.className = "table-wrapper";
 
         const table = document.createElement("table");
         table.innerHTML = "<thead><tr><th>Name</th><th>Return Type</th><th>Args</th></tr></thead>";
@@ -362,7 +383,8 @@
         }
 
         table.appendChild(tbody);
-        card.appendChild(table);
+        tableWrapper.appendChild(table);
+        card.appendChild(tableWrapper);
       }
 
       content.appendChild(card);
@@ -381,6 +403,19 @@
       cursor.style.left = e.pageX + "px";
       cursor.style.top = e.pageY + "px";
     });
+
+    // Typing animation for search placeholder
+    const searchInput = document.getElementById("searchBar");
+    const placeholderText = "Search classes...";
+    let i = 0;
+    function typePlaceholder() {
+      if (i <= placeholderText.length) {
+        searchInput.setAttribute("placeholder", placeholderText.substring(0, i));
+        i++;
+        setTimeout(typePlaceholder, 70);
+      }
+    }
+    typePlaceholder();
   </script>
 </body>
 </html>
