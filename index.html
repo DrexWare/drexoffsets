@@ -5,65 +5,139 @@
   <title>CS2 SDK Viewer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    :root {
+      --bg: #1e1e1e;
+      --card: #2c2c2c;
+      --text: #f5f5f5;
+      --accent: #61dafb;
+      --muted: #aaaaaa;
+      --border: #3a3a3a;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Segoe UI", Arial, sans-serif;
       margin: 0;
-      background: #f8f9fa;
-      color: #212529;
+      background: var(--bg);
+      color: var(--text);
     }
     header {
-      background: #343a40;
-      color: white;
+      background: #111;
       padding: 1rem;
       text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: var(--accent);
+    }
+    header p {
+      margin: 0.3rem 0 0;
+      font-size: 0.9rem;
+      color: var(--muted);
     }
     #searchBar {
       width: 90%;
       max-width: 600px;
       margin: 1rem auto;
-      padding: 0.5rem;
+      padding: 0.6rem;
       font-size: 1rem;
       display: block;
-      border: 1px solid #ccc;
+      border: 1px solid var(--border);
       border-radius: 5px;
+      background: #111;
+      color: var(--text);
     }
     #viewer {
-      width: 90%;
+      width: 95%;
       max-width: 1200px;
       margin: 1rem auto;
     }
     .card {
-      background: white;
+      background: var(--card);
       border-radius: 10px;
-      padding: 1rem;
+      padding: 0;
       margin: 1rem 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border: 1px solid var(--border);
+      overflow: hidden;
     }
-    .card h2 {
-      margin: 0;
+    .card-header {
+      background: #222;
+      padding: 0.8rem 1rem;
       cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
     }
-    .card table {
+    .card-header:hover {
+      background: #2a2a2a;
+    }
+    .card-body {
+      padding: 1rem;
+      display: none;
+    }
+    .card.open .card-body {
+      display: block;
+    }
+    h3 {
+      margin-top: 1rem;
+      color: var(--accent);
+      font-size: 1rem;
+    }
+    table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 0.5rem;
-    }
-    .card table th, .card table td {
-      padding: 0.5rem;
-      border: 1px solid #ddd;
-      text-align: left;
+      margin: 0.5rem 0;
       font-size: 0.9rem;
     }
+    table th, table td {
+      padding: 0.4rem 0.6rem;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+    table th {
+      background: #333;
+      color: var(--accent);
+    }
     .metadata {
-      background: #f1f3f5;
-      padding: 0.5rem;
+      background: #111;
+      padding: 0.6rem;
       margin-top: 0.5rem;
       border-radius: 5px;
       font-family: monospace;
+      font-size: 0.85rem;
       white-space: pre-wrap;
+      border: 1px solid var(--border);
     }
-    .hidden {
+    .dropdown {
+      margin-top: 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .dropdown-header {
+      padding: 0.5rem 0.8rem;
+      background: #2a2a2a;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .dropdown-header:hover {
+      background: #333;
+    }
+    .dropdown-content {
       display: none;
+      padding: 0.8rem;
+    }
+    .dropdown.open .dropdown-content {
+      display: block;
+    }
+    .muted {
+      color: var(--muted);
+      font-size: 0.85rem;
     }
   </style>
 </head>
@@ -78,13 +152,10 @@
   <div id="viewer"></div>
 
   <script>
-    // 👇 List JSON files here (relative to index.html)
     const JSON_FILES = [
       "dumped/json/client_dll.json",
       "dumped/json/buttons.json",
       "dumped/json/engine2.json"
-
-      // add more here automatically with a script or manually
     ];
 
     async function fetchAndRender() {
@@ -107,67 +178,120 @@
       const card = document.createElement("div");
       card.className = "card";
 
-      const title = document.createElement("h2");
-      title.textContent = `${filename} (${world})`;
-      title.onclick = () => body.classList.toggle("hidden");
-      card.appendChild(title);
+      const header = document.createElement("div");
+      header.className = "card-header";
+      header.innerHTML = `<span>${filename} <span class="muted">(${world})</span></span><span>▶</span>`;
+      header.onclick = () => {
+        card.classList.toggle("open");
+        header.querySelector("span:last-child").textContent = card.classList.contains("open") ? "▼" : "▶";
+      };
+      card.appendChild(header);
 
       const body = document.createElement("div");
+      body.className = "card-body";
 
       // --- Enums ---
       if (content.enums) {
         for (const [enumName, enumData] of Object.entries(content.enums)) {
-          const h3 = document.createElement("h3");
-          h3.textContent = `enum ${enumName}`;
-          body.appendChild(h3);
-
-          const table = document.createElement("table");
-          const tbody = document.createElement("tbody");
-
-          for (const [member, value] of Object.entries(enumData.members || {})) {
-            const tr = document.createElement("tr");
-            tr.innerHTML = `<td>${member}</td><td>${value}</td>`;
-            tbody.appendChild(tr);
-          }
-          table.appendChild(tbody);
-          body.appendChild(table);
+          const dropdown = makeDropdown(`enum ${enumName}`, () => {
+            const table = document.createElement("table");
+            const tbody = document.createElement("tbody");
+            for (const [member, value] of Object.entries(enumData.members || {})) {
+              const tr = document.createElement("tr");
+              tr.innerHTML = `<td>${member}</td><td>${value}</td>`;
+              tbody.appendChild(tr);
+            }
+            table.appendChild(tbody);
+            return table;
+          });
+          body.appendChild(dropdown);
         }
       }
 
       // --- Classes ---
       if (content.classes) {
         for (const [className, classData] of Object.entries(content.classes)) {
-          const h3 = document.createElement("h3");
-          h3.textContent = `class ${className}${classData.parent ? " : " + classData.parent : ""}`;
-          body.appendChild(h3);
+          const dropdown = makeDropdown(
+            `class ${className}${classData.parent ? " : " + classData.parent : ""}`,
+            () => {
+              const fragment = document.createDocumentFragment();
 
-          if (classData.fields) {
-            const table = document.createElement("table");
-            const thead = document.createElement("thead");
-            thead.innerHTML = "<tr><th>Field</th><th>Offset</th></tr>";
-            table.appendChild(thead);
+              if (classData.fields) {
+                const table = document.createElement("table");
+                const thead = document.createElement("thead");
+                thead.innerHTML = "<tr><th>Field</th><th>Type</th><th>Offset</th></tr>";
+                table.appendChild(thead);
 
-            const tbody = document.createElement("tbody");
-            for (const [field, offset] of Object.entries(classData.fields)) {
-              const tr = document.createElement("tr");
-              tr.innerHTML = `<td>${field}</td><td>${offset}</td>`;
-              tbody.appendChild(tr);
+                const tbody = document.createElement("tbody");
+                for (const [field, offset] of Object.entries(classData.fields)) {
+                  const tr = document.createElement("tr");
+                  const type = classData.fieldTypes?.[field] || "unknown";
+                  tr.innerHTML = `<td>${field}</td><td>${type}</td><td>${offset}</td>`;
+                  tbody.appendChild(tr);
+                }
+                table.appendChild(tbody);
+                fragment.appendChild(table);
+              }
+
+              if (classData.methods) {
+                const mdrop = makeDropdown("Methods", () => {
+                  const table = document.createElement("table");
+                  const thead = document.createElement("thead");
+                  thead.innerHTML = "<tr><th>Method</th><th>Return Type</th><th>Args</th></tr>";
+                  table.appendChild(thead);
+
+                  const tbody = document.createElement("tbody");
+                  for (const [method, info] of Object.entries(classData.methods)) {
+                    const tr = document.createElement("tr");
+                    tr.innerHTML = `<td>${method}</td><td>${info.return || "void"}</td><td>${(info.args || []).join(", ")}</td>`;
+                    tbody.appendChild(tr);
+                  }
+                  table.appendChild(tbody);
+                  return table;
+                });
+                fragment.appendChild(mdrop);
+              }
+
+              if (classData.metadata && classData.metadata.length > 0) {
+                const meta = document.createElement("div");
+                meta.className = "metadata";
+                meta.textContent = JSON.stringify(classData.metadata, null, 2);
+                fragment.appendChild(meta);
+              }
+
+              return fragment;
             }
-            table.appendChild(tbody);
-            body.appendChild(table);
-          }
-
-          if (classData.metadata && classData.metadata.length > 0) {
-            const meta = document.createElement("div");
-            meta.className = "metadata";
-            meta.textContent = JSON.stringify(classData.metadata, null, 2);
-            body.appendChild(meta);
-          }
+          );
+          body.appendChild(dropdown);
         }
       }
 
       card.appendChild(body);
       container.appendChild(card);
+    }
+
+    function makeDropdown(title, contentBuilder) {
+      const dropdown = document.createElement("div");
+      dropdown.className = "dropdown";
+
+      const header = document.createElement("div");
+      header.className = "dropdown-header";
+      header.innerHTML = `<span>${title}</span><span>▶</span>`;
+      dropdown.appendChild(header);
+
+      const content = document.createElement("div");
+      content.className = "dropdown-content";
+      dropdown.appendChild(content);
+
+      header.onclick = () => {
+        dropdown.classList.toggle("open");
+        header.querySelector("span:last-child").textContent = dropdown.classList.contains("open") ? "▼" : "▶";
+        if (dropdown.classList.contains("open") && content.childElementCount === 0) {
+          content.appendChild(contentBuilder());
+        }
+      };
+
+      return dropdown;
     }
 
     // --- Search filter ---
