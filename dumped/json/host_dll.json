@@ -1,3 +1,4 @@
+// Dumped by shxdows dumper (csdump)
 {
   "host.dll": {
     "classes": {
@@ -13,7 +14,7 @@
           "m_hTest": 16
         },
         "metadata": [],
-        "parent": "CAnimScriptBase"
+        "parent": null
       }
     },
     "enums": {}
