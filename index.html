@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CS2 SDK Viewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f8f9fa;
+      color: #212529;
+    }
+    header {
+      background: #343a40;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    #searchBar {
+      width: 90%;
+      max-width: 600px;
+      margin: 1rem auto;
+      padding: 0.5rem;
+      font-size: 1rem;
+      display: block;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    #viewer {
+      width: 90%;
+      max-width: 1200px;
+      margin: 1rem auto;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1rem 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .card h2 {
+      margin: 0;
+      cursor: pointer;
+    }
+    .card table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+    }
+    .card table th, .card table td {
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+    .metadata {
+      background: #f1f3f5;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      border-radius: 5px;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CS2 SDK Viewer</h1>
+    <p>Browse dumped SDK JSON files</p>
+  </header>
+
+  <input type="text" id="searchBar" placeholder="🔍 Search classes, fields, or enums...">
+
+  <div id="viewer"></div>
+
+  <script>
+    // 👇 List JSON files here (relative to index.html)
+    const JSON_FILES = [
+      "dumped/json/client_dll.json",
+      "dumped/json/buttons.json",
+      "dumped/json/engine2.json"
+
+      // add more here automatically with a script or manually
+    ];
+
+    async function fetchAndRender() {
+      const viewer = document.getElementById("viewer");
+
+      for (const file of JSON_FILES) {
+        try {
+          const data = await fetch(file).then(r => r.json());
+          renderJSON(file, data, viewer);
+        } catch (err) {
+          console.error("Failed to load", file, err);
+        }
+      }
+    }
+
+    function renderJSON(filename, data, container) {
+      const world = Object.keys(data)[0];
+      const content = data[world];
+
+      const card = document.createElement("div");
+      card.className = "card";
+
+      const title = document.createElement("h2");
+      title.textContent = `${filename} (${world})`;
+      title.onclick = () => body.classList.toggle("hidden");
+      card.appendChild(title);
+
+      const body = document.createElement("div");
+
+      // --- Enums ---
+      if (content.enums) {
+        for (const [enumName, enumData] of Object.entries(content.enums)) {
+          const h3 = document.createElement("h3");
+          h3.textContent = `enum ${enumName}`;
+          body.appendChild(h3);
+
+          const table = document.createElement("table");
+          const tbody = document.createElement("tbody");
+
+          for (const [member, value] of Object.entries(enumData.members || {})) {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `<td>${member}</td><td>${value}</td>`;
+            tbody.appendChild(tr);
+          }
+          table.appendChild(tbody);
+          body.appendChild(table);
+        }
+      }
+
+      // --- Classes ---
+      if (content.classes) {
+        for (const [className, classData] of Object.entries(content.classes)) {
+          const h3 = document.createElement("h3");
+          h3.textContent = `class ${className}${classData.parent ? " : " + classData.parent : ""}`;
+          body.appendChild(h3);
+
+          if (classData.fields) {
+            const table = document.createElement("table");
+            const thead = document.createElement("thead");
+            thead.innerHTML = "<tr><th>Field</th><th>Offset</th></tr>";
+            table.appendChild(thead);
+
+            const tbody = document.createElement("tbody");
+            for (const [field, offset] of Object.entries(classData.fields)) {
+              const tr = document.createElement("tr");
+              tr.innerHTML = `<td>${field}</td><td>${offset}</td>`;
+              tbody.appendChild(tr);
+            }
+            table.appendChild(tbody);
+            body.appendChild(table);
+          }
+
+          if (classData.metadata && classData.metadata.length > 0) {
+            const meta = document.createElement("div");
+            meta.className = "metadata";
+            meta.textContent = JSON.stringify(classData.metadata, null, 2);
+            body.appendChild(meta);
+          }
+        }
+      }
+
+      card.appendChild(body);
+      container.appendChild(card);
+    }
+
+    // --- Search filter ---
+    document.getElementById("searchBar").addEventListener("input", (e) => {
+      const term = e.target.value.toLowerCase();
+      document.querySelectorAll(".card").forEach(card => {
+        card.style.display = card.textContent.toLowerCase().includes(term) ? "" : "none";
+      });
+    });
+
+    fetchAndRender();
+  </script>
+</body>
+</html>
