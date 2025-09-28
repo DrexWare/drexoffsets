@@ -1,3 +1,4 @@
+// Dumped by shxdows dumper (csdump)
 {
   "scenesystem.dll": {
     "classes": {
@@ -28,11 +29,10 @@
       },
       "CSSDSMsg_LayerBase": {
         "fields": {
-          "m_LayerName": 40,
+          "m_LayerName": 32,
           "m_ViewName": 16,
-          "m_displayText": 48,
-          "m_nLayerId": 32,
-          "m_nLayerIndex": 24,
+          "m_displayText": 40,
+          "m_nLayerId": 24,
           "m_viewId": 0
         },
         "metadata": [
@@ -51,7 +51,7 @@
             "type": "Unknown"
           }
         ],
-        "parent": "CSSDSMsg_LayerBase"
+        "parent": null
       },
       "CSSDSMsg_PreLayer": {
         "fields": {},
@@ -61,7 +61,7 @@
             "type": "Unknown"
           }
         ],
-        "parent": "CSSDSMsg_LayerBase"
+        "parent": null
       },
       "CSSDSMsg_ViewRender": {
         "fields": {
