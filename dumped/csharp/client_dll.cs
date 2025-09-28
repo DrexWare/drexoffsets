@@ -1,4 +1,4 @@
-// Dumped by shxdows dumper (csdump)
+// dumped by shxdows dumper (csdump)
 
 namespace CS2Dumper.Schemas {
     // Module: client.dll
