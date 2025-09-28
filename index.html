@@ -2,16 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>CS2 SDK Viewer</title>
+  <title>advantage.wtf - CS2 SDK Viewer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     :root {
-      --bg: #1e1e1e;
-      --card: #2c2c2c;
+      --bg: #18181b;
+      --sidebar: #1f1f23;
+      --card: #27272a;
       --text: #f5f5f5;
-      --accent: #61dafb;
-      --muted: #aaaaaa;
-      --border: #3a3a3a;
+      --muted: #9ca3af;
+      --accent: #a855f7;
+      --border: #3f3f46;
+      --transition: 0.25s ease;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
@@ -19,137 +25,157 @@
       margin: 0;
       background: var(--bg);
       color: var(--text);
-    }
-    header {
-      background: #111;
-      padding: 1rem;
-      text-align: center;
-      border-bottom: 1px solid var(--border);
-    }
-    header h1 {
-      margin: 0;
-      font-size: 1.5rem;
-      color: var(--accent);
-    }
-    header p {
-      margin: 0.3rem 0 0;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-    #searchBar {
-      width: 90%;
-      max-width: 600px;
-      margin: 1rem auto;
-      padding: 0.6rem;
-      font-size: 1rem;
-      display: block;
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      background: #111;
-      color: var(--text);
-    }
-    #viewer {
-      width: 95%;
-      max-width: 1200px;
-      margin: 1rem auto;
-    }
-    .card {
-      background: var(--card);
-      border-radius: 10px;
-      padding: 0;
-      margin: 1rem 0;
-      border: 1px solid var(--border);
+      display: flex;
+      height: 100vh;
       overflow: hidden;
     }
-    .card-header {
-      background: #222;
-      padding: 0.8rem 1rem;
-      cursor: pointer;
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: var(--sidebar);
+      border-bottom: 1px solid var(--border);
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: var(--accent);
+      z-index: 100;
+    }
+
+    .container {
+      display: flex;
+      flex: 1;
+      margin-top: 60px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 280px;
+      background: var(--sidebar);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      transition: width var(--transition);
+      overflow-y: auto;
+    }
+
+    .search {
+      padding: 0.75rem;
+    }
+
+    .search input {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #111;
+      color: var(--text);
+      font-size: 0.95rem;
+      transition: border var(--transition);
+    }
+
+    .search input:focus {
+      outline: none;
+      border: 1px solid var(--accent);
+    }
+
+    .class-list {
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .class-item {
+      padding: 0.6rem 1rem;
+      cursor: pointer;
+      transition: background var(--transition);
+      border-left: 3px solid transparent;
+    }
+
+    .class-item:hover {
+      background: #2a2a2e;
+    }
+
+    .class-item.active {
+      background: #2a2a2e;
+      border-left: 3px solid var(--accent);
       font-weight: bold;
     }
-    .card-header:hover {
-      background: #2a2a2a;
+
+    /* Content */
+    .content {
+      flex: 1;
+      padding: 1rem 2rem;
+      overflow-y: auto;
+      animation: fadeIn 0.3s ease;
     }
-    .card-body {
-      padding: 1rem;
-      display: none;
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    .card.open .card-body {
-      display: block;
-    }
-    h3 {
-      margin-top: 1rem;
+
+    h2 {
+      margin-top: 0;
       color: var(--accent);
-      font-size: 1rem;
     }
+
+    h3 {
+      margin-top: 1.2rem;
+      margin-bottom: 0.4rem;
+      color: var(--accent);
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 0.5rem 0;
+      margin-bottom: 1rem;
       font-size: 0.9rem;
+      border-radius: 8px;
+      overflow: hidden;
     }
+
     table th, table td {
-      padding: 0.4rem 0.6rem;
+      padding: 0.5rem 0.75rem;
       border: 1px solid var(--border);
       text-align: left;
     }
+
     table th {
       background: #333;
       color: var(--accent);
-    }
-    .metadata {
-      background: #111;
-      padding: 0.6rem;
-      margin-top: 0.5rem;
-      border-radius: 5px;
-      font-family: monospace;
-      font-size: 0.85rem;
-      white-space: pre-wrap;
-      border: 1px solid var(--border);
-    }
-    .dropdown {
-      margin-top: 0.5rem;
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      overflow: hidden;
-    }
-    .dropdown-header {
-      padding: 0.5rem 0.8rem;
-      background: #2a2a2a;
-      cursor: pointer;
       font-weight: bold;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
     }
-    .dropdown-header:hover {
-      background: #333;
-    }
-    .dropdown-content {
-      display: none;
-      padding: 0.8rem;
-    }
-    .dropdown.open .dropdown-content {
-      display: block;
-    }
-    .muted {
-      color: var(--muted);
-      font-size: 0.85rem;
+
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      margin-bottom: 1.5rem;
+      animation: fadeIn 0.3s ease;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>CS2 SDK Viewer</h1>
-    <p>Browse dumped SDK JSON files</p>
-  </header>
+  <header>advantage.wtf - CS2 SDK Viewer</header>
 
-  <input type="text" id="searchBar" placeholder="🔍 Search classes, fields, or enums...">
+  <div class="container">
+    <aside class="sidebar">
+      <div class="search">
+        <input type="text" id="searchBar" placeholder="🔍 Search classes...">
+      </div>
+      <div class="class-list" id="classList"></div>
+    </aside>
 
-  <div id="viewer"></div>
+    <main class="content" id="content">
+      <p style="color: var(--muted);">Select a class from the left to view details.</p>
+    </main>
+  </div>
 
   <script>
     const JSON_FILES = [
@@ -158,151 +184,117 @@
       "dumped/json/engine2.json"
     ];
 
-    async function fetchAndRender() {
-      const viewer = document.getElementById("viewer");
+    let allClasses = {};
 
+    async function fetchData() {
       for (const file of JSON_FILES) {
         try {
           const data = await fetch(file).then(r => r.json());
-          renderJSON(file, data, viewer);
+          const world = Object.keys(data)[0];
+          const content = data[world];
+          if (content.classes) {
+            for (const [name, cls] of Object.entries(content.classes)) {
+              allClasses[name] = cls;
+            }
+          }
         } catch (err) {
           console.error("Failed to load", file, err);
         }
       }
+      renderClassList();
     }
 
-    function renderJSON(filename, data, container) {
-      const world = Object.keys(data)[0];
-      const content = data[world];
+    function renderClassList(filter = "") {
+      const list = document.getElementById("classList");
+      list.innerHTML = "";
+      const classes = Object.keys(allClasses).sort();
 
+      for (const className of classes) {
+        if (!className.toLowerCase().includes(filter.toLowerCase())) continue;
+        const div = document.createElement("div");
+        div.className = "class-item";
+        div.textContent = className;
+        div.onclick = () => selectClass(className, div);
+        list.appendChild(div);
+      }
+    }
+
+    function selectClass(className, element) {
+      document.querySelectorAll(".class-item").forEach(e => e.classList.remove("active"));
+      element.classList.add("active");
+
+      const content = document.getElementById("content");
+      content.innerHTML = "";
+
+      const cls = allClasses[className];
       const card = document.createElement("div");
       card.className = "card";
 
-      const header = document.createElement("div");
-      header.className = "card-header";
-      header.innerHTML = `<span>${filename} <span class="muted">(${world})</span></span><span>▶</span>`;
-      header.onclick = () => {
-        card.classList.toggle("open");
-        header.querySelector("span:last-child").textContent = card.classList.contains("open") ? "▼" : "▶";
-      };
-      card.appendChild(header);
+      const title = document.createElement("h2");
+      title.textContent = `class ${className}${cls.parent ? " : " + cls.parent : ""}`;
+      card.appendChild(title);
 
-      const body = document.createElement("div");
-      body.className = "card-body";
+      // Fields
+      if (cls.fields) {
+        const h3 = document.createElement("h3");
+        h3.textContent = "Fields";
+        card.appendChild(h3);
 
-      // --- Enums ---
-      if (content.enums) {
-        for (const [enumName, enumData] of Object.entries(content.enums)) {
-          const dropdown = makeDropdown(`enum ${enumName}`, () => {
-            const table = document.createElement("table");
-            const tbody = document.createElement("tbody");
-            for (const [member, value] of Object.entries(enumData.members || {})) {
-              const tr = document.createElement("tr");
-              tr.innerHTML = `<td>${member}</td><td>${value}</td>`;
-              tbody.appendChild(tr);
-            }
-            table.appendChild(tbody);
-            return table;
-          });
-          body.appendChild(dropdown);
+        const table = document.createElement("table");
+        table.innerHTML = "<thead><tr><th>Name</th><th>Type</th><th>Offset</th></tr></thead>";
+        const tbody = document.createElement("tbody");
+
+        for (const [field, info] of Object.entries(cls.fields)) {
+          let offset = "?";
+          let type = "unknown";
+
+          if (typeof info === "object") {
+            offset = info.offset ?? "?";
+            type = info.type_name ?? "unknown";
+          } else {
+            offset = info;
+          }
+
+          const tr = document.createElement("tr");
+          tr.innerHTML = `<td>${field}</td><td>${type}</td><td>${offset}</td>`;
+          tbody.appendChild(tr);
         }
+
+        table.appendChild(tbody);
+        card.appendChild(table);
       }
 
-      // --- Classes ---
-      if (content.classes) {
-        for (const [className, classData] of Object.entries(content.classes)) {
-          const dropdown = makeDropdown(
-            `class ${className}${classData.parent ? " : " + classData.parent : ""}`,
-            () => {
-              const fragment = document.createDocumentFragment();
+      // Methods
+      if (cls.methods) {
+        const h3 = document.createElement("h3");
+        h3.textContent = "Methods";
+        card.appendChild(h3);
 
-              if (classData.fields) {
-                const table = document.createElement("table");
-                const thead = document.createElement("thead");
-                thead.innerHTML = "<tr><th>Field</th><th>Type</th><th>Offset</th></tr>";
-                table.appendChild(thead);
+        const table = document.createElement("table");
+        table.innerHTML = "<thead><tr><th>Name</th><th>Return Type</th><th>Args</th></tr></thead>";
+        const tbody = document.createElement("tbody");
 
-                const tbody = document.createElement("tbody");
-                for (const [field, offset] of Object.entries(classData.fields)) {
-                  const tr = document.createElement("tr");
-                  const type = classData.fieldTypes?.[field] || "unknown";
-                  tr.innerHTML = `<td>${field}</td><td>${type}</td><td>${offset}</td>`;
-                  tbody.appendChild(tr);
-                }
-                table.appendChild(tbody);
-                fragment.appendChild(table);
-              }
-
-              if (classData.methods) {
-                const mdrop = makeDropdown("Methods", () => {
-                  const table = document.createElement("table");
-                  const thead = document.createElement("thead");
-                  thead.innerHTML = "<tr><th>Method</th><th>Return Type</th><th>Args</th></tr>";
-                  table.appendChild(thead);
-
-                  const tbody = document.createElement("tbody");
-                  for (const [method, info] of Object.entries(classData.methods)) {
-                    const tr = document.createElement("tr");
-                    tr.innerHTML = `<td>${method}</td><td>${info.return || "void"}</td><td>${(info.args || []).join(", ")}</td>`;
-                    tbody.appendChild(tr);
-                  }
-                  table.appendChild(tbody);
-                  return table;
-                });
-                fragment.appendChild(mdrop);
-              }
-
-              if (classData.metadata && classData.metadata.length > 0) {
-                const meta = document.createElement("div");
-                meta.className = "metadata";
-                meta.textContent = JSON.stringify(classData.metadata, null, 2);
-                fragment.appendChild(meta);
-              }
-
-              return fragment;
-            }
-          );
-          body.appendChild(dropdown);
+        for (const [method, info] of Object.entries(cls.methods)) {
+          const returnType = info.return_type || "void";
+          const args = (info.args || []).map(a => `${a.type_name || "?"} ${a.name || ""}`).join(", ");
+          const tr = document.createElement("tr");
+          tr.innerHTML = `<td>${method}</td><td>${returnType}</td><td>${args}</td>`;
+          tbody.appendChild(tr);
         }
+
+        table.appendChild(tbody);
+        card.appendChild(table);
       }
 
-      card.appendChild(body);
-      container.appendChild(card);
+      content.appendChild(card);
     }
 
-    function makeDropdown(title, contentBuilder) {
-      const dropdown = document.createElement("div");
-      dropdown.className = "dropdown";
-
-      const header = document.createElement("div");
-      header.className = "dropdown-header";
-      header.innerHTML = `<span>${title}</span><span>▶</span>`;
-      dropdown.appendChild(header);
-
-      const content = document.createElement("div");
-      content.className = "dropdown-content";
-      dropdown.appendChild(content);
-
-      header.onclick = () => {
-        dropdown.classList.toggle("open");
-        header.querySelector("span:last-child").textContent = dropdown.classList.contains("open") ? "▼" : "▶";
-        if (dropdown.classList.contains("open") && content.childElementCount === 0) {
-          content.appendChild(contentBuilder());
-        }
-      };
-
-      return dropdown;
-    }
-
-    // --- Search filter ---
-    document.getElementById("searchBar").addEventListener("input", (e) => {
-      const term = e.target.value.toLowerCase();
-      document.querySelectorAll(".card").forEach(card => {
-        card.style.display = card.textContent.toLowerCase().includes(term) ? "" : "none";
-      });
+    // Search
+    document.getElementById("searchBar").addEventListener("input", e => {
+      renderClassList(e.target.value);
     });
 
-    fetchAndRender();
+    fetchData();
   </script>
 </body>
 </html>
