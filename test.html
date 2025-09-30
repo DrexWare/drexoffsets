@@ -364,7 +364,7 @@
     const clearBtn = document.getElementById("clearBtn");
     let focused = false;
     searchUI.addEventListener("click", ()=>{ focused = true; ph.style.display = "none"; });
-    document.addEventListener("click", e => { if(!searchUI.contains(e.target)){ focused = false; if(!query) ph.style.display = "block"; }});
+    // document.addEventListener("click", e => { if(!searchUI.contains(e.target)){ focused = false; if(!query) ph.style.display = "block"; }});
     document.addEventListener("keydown", e=>{
       if(!focused) return;
       const k = e.key;
