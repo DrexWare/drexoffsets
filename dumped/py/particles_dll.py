@@ -7272,4 +7272,3 @@ class VecInputMaterialVariable_t:
             "type": "Unknown"
         }
     ]
-
