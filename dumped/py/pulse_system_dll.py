@@ -1,5 +1,4 @@
-// dumped by shxdows dumper (csdump)
-# dumped by shxdows dumper (csdump) 
+# dumped by shxdows dumper (csdump)
 
 from enum import Enum
 
@@ -1334,4 +1333,3 @@ class SignatureOutflow_Continue:
 
 class SignatureOutflow_Resume:
     pass
-
