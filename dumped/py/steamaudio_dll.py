@@ -188,4 +188,3 @@ class SteamAudioReverbSettings_t:
             "type": "Unknown"
         }
     ]
-
