@@ -35,4 +35,3 @@ class EStyleNodeType(Enum):
     ROOT = 0
     STYLE_SELECTOR = 7
     WHITESPACE = 8
-
