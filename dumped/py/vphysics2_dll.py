@@ -1391,4 +1391,3 @@ class vphysics_save_cphysicsbody_t:
             "type": "Unknown"
         }
     ]
-
