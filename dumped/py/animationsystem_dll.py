@@ -8621,4 +8621,3 @@ class WeightList:
             "type": "Unknown"
         }
     ]
-
