@@ -133,4 +133,3 @@ class VsInputSignatureElement_t:
 class VsInputSignature_t:
     m_depth_elems = 24  # offset
     m_elems = 0  # offset
-
