@@ -10,4 +10,3 @@ class OutOfPVSUpdates_t(Enum):
 
 class ChangeAccessorFieldPathIndex_t:
     m_Value = 0  # offset
-
