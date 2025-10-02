@@ -1,5 +1,4 @@
-// dumped by shxdows dumper (csdump)
-# dumped by shxdows dumper (csdump) 
+# dumped by shxdows dumper (csdump)
 
 class CSteamAudioAmbisonicsField:
     m_field = 0  # offset
