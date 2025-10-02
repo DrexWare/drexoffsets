@@ -1,5 +1,4 @@
-// dumped by shxdows dumper (csdump)
-# dumped by shxdows dumper (csdump) 
+# dumped by shxdows dumper (csdump)
 
 from enum import Enum
 
@@ -236,4 +235,3 @@ class PostProcessingVignetteParameters_t:
             "type": "Unknown"
         }
     ]
-
