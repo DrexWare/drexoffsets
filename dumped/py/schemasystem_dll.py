@@ -1,5 +1,4 @@
-// dumped by shxdows dumper (csdump)
-# dumped by shxdows dumper (csdump) 
+# dumped by shxdows dumper (csdump)
 
 from enum import Enum
 
@@ -170,4 +169,3 @@ class InfoForResourceTypeCResourceManifestInternal:
 
 class ResourceId_t:
     m_Value = 0  # offset
-
