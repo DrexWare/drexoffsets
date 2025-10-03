@@ -7,7 +7,7 @@
 namespace cs2_dumper {
     namespace schemas {
         // Module: server.dll
-        // Class count: 717
+        // Class count: 718
         // Enum count: 150
         namespace server_dll {
             // Alignment: 4
@@ -1709,7 +1709,7 @@ namespace cs2_dumper {
                 MOVETYPE_INVALID = 0xB,
                 MOVETYPE_MAX_BITS = 0x5
             };
-            // Parent: CCSWeaponBase
+            // Parent: CCSWeaponBaseShotgun
             // Field count: 0
             namespace CWeaponNOVA {
             }
@@ -2657,6 +2657,10 @@ namespace cs2_dumper {
             // Parent: None
             // Field count: 0
             namespace CTestPulseIOAPI {
+            }
+            // Parent: CCSWeaponBase
+            // Field count: 0
+            namespace CCSWeaponBaseShotgun {
             }
             // Parent: None
             // Field count: 7
@@ -6383,7 +6387,7 @@ namespace cs2_dumper {
             // Field count: 0
             namespace CLightSpotEntity {
             }
-            // Parent: CCSWeaponBase
+            // Parent: CCSWeaponBaseShotgun
             // Field count: 0
             namespace CWeaponSawedoff {
             }
@@ -11807,7 +11811,7 @@ namespace cs2_dumper {
             // Field count: 0
             namespace CCSPlayer_DamageReactServices {
             }
-            // Parent: CCSWeaponBase
+            // Parent: CCSWeaponBaseShotgun
             // Field count: 0
             namespace CWeaponXM1014 {
             }
