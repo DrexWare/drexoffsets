@@ -8226,6 +8226,9 @@ class C_CSWeaponBaseGun(C_CSWeaponBase):
         }
     ]
 
+class C_CSWeaponBaseShotgun(C_CSWeaponBase):
+    pass
+
 class C_Chicken(C_DynamicProp):
     m_AttributeManager = 5192  # offset
     m_bAttributesInitialized = 6432  # offset
@@ -13375,7 +13378,7 @@ class C_WeaponMP9(C_CSWeaponBaseGun):
 class C_WeaponMag7(C_CSWeaponBaseGun):
     pass
 
-class C_WeaponNOVA(C_CSWeaponBase):
+class C_WeaponNOVA(C_CSWeaponBaseShotgun):
     pass
 
 class C_WeaponNegev(C_CSWeaponBaseGun):
@@ -13399,7 +13402,7 @@ class C_WeaponSG556(C_CSWeaponBaseGun):
 class C_WeaponSSG08(C_CSWeaponBaseGun):
     pass
 
-class C_WeaponSawedoff(C_CSWeaponBase):
+class C_WeaponSawedoff(C_CSWeaponBaseShotgun):
     pass
 
 class C_WeaponTaser(C_CSWeaponBaseGun):
@@ -13423,7 +13426,7 @@ class C_WeaponUMP45(C_CSWeaponBaseGun):
 class C_WeaponUSPSilencer(C_CSWeaponBaseGun):
     pass
 
-class C_WeaponXM1014(C_CSWeaponBase):
+class C_WeaponXM1014(C_CSWeaponBaseShotgun):
     pass
 
 class C_World(C_BaseModelEntity):
