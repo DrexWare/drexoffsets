@@ -7013,6 +7013,9 @@ class CCSWeaponBaseGun(CCSWeaponBase):
         }
     ]
 
+class CCSWeaponBaseShotgun(CCSWeaponBase):
+    pass
+
 class CCSWeaponBaseVData:
     m_DefaultLoadoutSlot = 1800  # offset
     m_GearSlot = 1792  # offset
@@ -17357,7 +17360,7 @@ class CWeaponMP9(CCSWeaponBaseGun):
 class CWeaponMag7(CCSWeaponBaseGun):
     pass
 
-class CWeaponNOVA(CCSWeaponBase):
+class CWeaponNOVA(CCSWeaponBaseShotgun):
     pass
 
 class CWeaponNegev(CCSWeaponBaseGun):
@@ -17381,7 +17384,7 @@ class CWeaponSG556(CCSWeaponBaseGun):
 class CWeaponSSG08(CCSWeaponBaseGun):
     pass
 
-class CWeaponSawedoff(CCSWeaponBase):
+class CWeaponSawedoff(CCSWeaponBaseShotgun):
     pass
 
 class CWeaponTaser(CCSWeaponBaseGun):
@@ -17405,7 +17408,7 @@ class CWeaponUMP45(CCSWeaponBaseGun):
 class CWeaponUSPSilencer(CCSWeaponBaseGun):
     pass
 
-class CWeaponXM1014(CCSWeaponBase):
+class CWeaponXM1014(CCSWeaponBaseShotgun):
     pass
 
 class CWorld(CBaseModelEntity):
