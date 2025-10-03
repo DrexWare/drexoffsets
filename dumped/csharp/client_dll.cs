@@ -2,7 +2,7 @@
 
 namespace CS2Dumper.Schemas {
     // Module: client.dll
-    // Class count: 489
+    // Class count: 490
     // Enum count: 8
     public static class ClientDll {
         // Alignment: 4
@@ -1263,7 +1263,7 @@ namespace CS2Dumper.Schemas {
         public static class CPointChildModifier {
             public const nint m_bOrphanInsteadOfDeletingChildrenOnRemove = 0x5F8; // bool
         }
-        // Parent: C_CSWeaponBase
+        // Parent: C_CSWeaponBaseShotgun
         // Field count: 0
         public static class C_WeaponNOVA {
         }
@@ -2864,7 +2864,7 @@ namespace CS2Dumper.Schemas {
             public const nint m_Completed = 0x48; // CPulse_ResumePoint
             public const nint m_OnInterval = 0x90; // SignatureOutflow_Continue
         }
-        // Parent: C_CSWeaponBase
+        // Parent: C_CSWeaponBaseShotgun
         // Field count: 0
         public static class C_WeaponXM1014 {
         }
@@ -6150,6 +6150,10 @@ namespace CS2Dumper.Schemas {
         // MPulseEditorHeaderIcon
         public static class CPulseCell_Value_RandomInt {
         }
+        // Parent: C_CSWeaponBase
+        // Field count: 0
+        public static class C_CSWeaponBaseShotgun {
+        }
         // Parent: C_RagdollProp
         // Field count: 7
         //
@@ -6707,7 +6711,7 @@ namespace CS2Dumper.Schemas {
         // Field count: 0
         public static class C_WeaponFiveSeven {
         }
-        // Parent: C_CSWeaponBase
+        // Parent: C_CSWeaponBaseShotgun
         // Field count: 0
         public static class C_WeaponSawedoff {
         }
