@@ -3,7 +3,7 @@ let query = "";
 const searchUI = document.getElementById("searchui");
 const charsWrap = document.getElementById("chars");
 const ph = document.getElementById("ph");
-const clearBtn = document.getElementById("clearBtn");
+const clearBtn = document.getElementById("clearbtn");
 let focused = false;
 
 function appendChar(c) { ph.style.display = "none"; const span = document.createElement("span"); span.className = "char"; span.textContent = c; charsWrap.appendChild(span); }
