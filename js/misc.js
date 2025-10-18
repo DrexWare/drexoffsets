@@ -1,6 +1,6 @@
 // -------------------- SEARCH UI --------------------
 let query = "";
-const searchUI = document.getElementById("searchUI");
+const searchUI = document.getElementById("searchui");
 const charsWrap = document.getElementById("chars");
 const ph = document.getElementById("ph");
 const clearBtn = document.getElementById("clearBtn");
