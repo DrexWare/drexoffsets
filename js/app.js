@@ -85,7 +85,7 @@ function parseSearch(query) {
 
 function renderClassList(query) {
     lastQuery = query || "";
-    const listEl = document.getElementById("classList");
+    const listEl = document.getElementById("classlist");
     listEl.innerHTML = "";
 
     const [type, term] = parseSearch(query);
