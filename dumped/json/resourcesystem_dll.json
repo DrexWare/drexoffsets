@@ -1,5 +1,5 @@
 // dumped with csdumper (created by shxdow)
-// 2025-10-14 02:08:30 UTC
+// 2025-10-18 16:17:32 UTC
 {
   "resourcesystem.dll": {
     "classes": {
@@ -127,7 +127,17 @@
         ],
         "parent": null
       },
-      "InfoForResourceTypeCChoreoSceneFileData": {
+      "InfoForResourceTypeCChoreoSceneFileList": {
+        "fields": {},
+        "metadata": [
+          {
+            "name": "MResourceTypeForInfoType",
+            "type": "Unknown"
+          }
+        ],
+        "parent": null
+      },
+      "InfoForResourceTypeCChoreoSceneResource": {
         "fields": {},
         "metadata": [
           {
